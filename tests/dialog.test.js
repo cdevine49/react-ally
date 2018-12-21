@@ -1,5 +1,5 @@
-import React from "react";
-import { cleanup, fireEvent, render } from "react-testing-library";
+import React from 'react';
+import { cleanup, fireEvent, render } from 'react-testing-library';
 import {
   Dialog,
   DialogContent,
@@ -10,15 +10,15 @@ import {
   DialogLabel,
   DialogDescription,
   LastTabbableElement
-} from "../components/dialog";
-import { needsDialogLabel, needsDialogDescription } from "../errors";
+} from '../es/react-ally.js';
+import { needsDialogLabel, needsDialogDescription } from '../src/errors';
 
 beforeEach(() => {
   console.error = jest.fn();
 });
 afterEach(cleanup);
 
-test("default", () => {
+test('default', () => {
   const component = (
     <Dialog>
       <DialogOpenButton>Open Me</DialogOpenButton>
@@ -33,7 +33,7 @@ test("default", () => {
   unmount();
 });
 
-test("initializeOpen prop", () => {
+test('initializeOpen prop', () => {
   const component = (
     <Dialog initializeOpen>
       <DialogOpenButton>Open Me</DialogOpenButton>
@@ -48,7 +48,7 @@ test("initializeOpen prop", () => {
   unmount();
 });
 
-test("Dialog ignores children besides DialogOpenButton and DialogContent", () => {
+test('Dialog ignores children besides DialogOpenButton and DialogContent', () => {
   const component = (
     <Dialog initializeOpen>
       <div>Hello</div>
@@ -62,7 +62,7 @@ test("Dialog ignores children besides DialogOpenButton and DialogContent", () =>
 });
 
 describe(`Opening a dialog`, () => {
-  test("Clicking DialogOpenButton", () => {
+  test('Clicking DialogOpenButton', () => {
     const component = (
       <Dialog>
         <DialogOpenButton>Open Me</DialogOpenButton>
@@ -73,7 +73,7 @@ describe(`Opening a dialog`, () => {
     );
     const { asFragment, getByText, unmount } = render(component, { container: document.body });
 
-    fireEvent.click(getByText("Open Me"));
+    fireEvent.click(getByText('Open Me'));
 
     expect(asFragment()).toMatchSnapshot();
     unmount();
@@ -100,7 +100,7 @@ describe(`Opening a dialog`, () => {
       </Dialog>
     );
     const { getByText, rerender, unmount } = render(component, { container: document.body });
-    fireEvent.click(getByText("Open Me"));
+    fireEvent.click(getByText('Open Me'));
     rerender(component);
 
     expect(onFocusFirstTabbable).not.toHaveBeenCalled();
@@ -130,7 +130,7 @@ describe(`Opening a dialog`, () => {
       </Dialog>
     );
     const { getByText, rerender, unmount } = render(component, { container: document.body });
-    fireEvent.click(getByText("Open Me"));
+    fireEvent.click(getByText('Open Me'));
     rerender(component);
 
     expect(onFocusFirstTabbable).toHaveBeenCalled();
@@ -152,12 +152,12 @@ describe(`Opening a dialog`, () => {
       </div>
     );
     const { asFragment, getByText, rerender, unmount } = render(component, { container: document.body });
-    const sibling = document.createElement("div");
+    const sibling = document.createElement('div');
     document.body.appendChild(sibling);
-    const hiddenSibling = document.createElement("div");
-    hiddenSibling.setAttribute("aria-hidden", true);
+    const hiddenSibling = document.createElement('div');
+    hiddenSibling.setAttribute('aria-hidden', true);
     document.body.appendChild(hiddenSibling);
-    fireEvent.click(getByText("Open Me"));
+    fireEvent.click(getByText('Open Me'));
     rerender(component);
     expect(asFragment()).toMatchSnapshot();
 
@@ -165,8 +165,8 @@ describe(`Opening a dialog`, () => {
   });
 });
 
-describe("Closing the dialog", () => {
-  test("Clicking DialogCloseButton", () => {
+describe('Closing the dialog', () => {
+  test('Clicking DialogCloseButton', () => {
     const component = (
       <div>
         <Dialog initializeOpen>
@@ -180,19 +180,19 @@ describe("Closing the dialog", () => {
     );
     const { asFragment, getByText, rerender, unmount } = render(component, { container: document.body });
 
-    fireEvent.click(getByText("Close Me"));
+    fireEvent.click(getByText('Close Me'));
     rerender(component);
 
     expect(asFragment()).toMatchSnapshot();
     unmount();
   });
 
-  test("Click the overlay", () => {
+  test('Click the overlay', () => {
     const component = (
       <div>
         <Dialog initializeOpen>
           <DialogOpenButton>Open Me</DialogOpenButton>
-          <DialogContent overlayProps={{ "data-testid": "dialog-overlay" }}>
+          <DialogContent overlayProps={{ 'data-testid': 'dialog-overlay' }}>
             <DialogLabel id="label-id">Header</DialogLabel>
             <DialogCloseButton>Close Me</DialogCloseButton>
           </DialogContent>
@@ -201,14 +201,14 @@ describe("Closing the dialog", () => {
     );
     const { asFragment, getByTestId, rerender, unmount } = render(component, { container: document.body });
 
-    fireEvent.click(getByTestId("dialog-overlay"));
+    fireEvent.click(getByTestId('dialog-overlay'));
     rerender(component);
 
     expect(asFragment()).toMatchSnapshot();
     unmount();
   });
 
-  test("Click the dialog", () => {
+  test('Click the dialog', () => {
     const component = (
       <div>
         <Dialog initializeOpen>
@@ -222,14 +222,14 @@ describe("Closing the dialog", () => {
     );
     const { asFragment, getByTestId, rerender, unmount } = render(component, { container: document.body });
 
-    fireEvent.click(getByTestId("dialog"));
+    fireEvent.click(getByTestId('dialog'));
     rerender(component);
 
     expect(asFragment()).toMatchSnapshot();
     unmount();
   });
 
-  test("Escape key", () => {
+  test('Escape key', () => {
     const component = (
       <div>
         <Dialog initializeOpen>
@@ -244,10 +244,10 @@ describe("Closing the dialog", () => {
     );
     const { asFragment, getByText, rerender, unmount } = render(component, { container: document.body });
 
-    fireEvent.click(getByText("Focus Me"));
+    fireEvent.click(getByText('Focus Me'));
     rerender(component);
-    fireEvent.keyDown(getByText("Focus Me"), {
-      key: "Escape",
+    fireEvent.keyDown(getByText('Focus Me'), {
+      key: 'Escape',
       keyCode: 27
     });
     rerender(component);
@@ -256,7 +256,7 @@ describe("Closing the dialog", () => {
     unmount();
   });
 
-  test("Focus returns to open button", () => {
+  test('Focus returns to open button', () => {
     const onFocusOpenButton = jest.fn();
     const onBlurOpenButton = jest.fn();
     const component = (
@@ -271,7 +271,7 @@ describe("Closing the dialog", () => {
       </Dialog>
     );
     const { getByText, rerender, unmount } = render(component, { container: document.body });
-    fireEvent.click(getByText("Close Me"));
+    fireEvent.click(getByText('Close Me'));
     rerender(component);
 
     expect(onFocusOpenButton).toHaveBeenCalled();
@@ -280,7 +280,7 @@ describe("Closing the dialog", () => {
     unmount();
   });
 
-  test("ModalRoot siblings return to original aria-hidden states", () => {
+  test('ModalRoot siblings return to original aria-hidden states', () => {
     const component = (
       <div>
         <Dialog initializeOpen>
@@ -294,14 +294,14 @@ describe("Closing the dialog", () => {
     );
     const { asFragment, getByText, rerender, unmount } = render(component, { container: document.body });
 
-    const sibling = document.createElement("div");
+    const sibling = document.createElement('div');
     document.body.appendChild(sibling);
-    const hiddenSibling = document.createElement("div");
-    hiddenSibling.setAttribute("aria-hidden", true);
+    const hiddenSibling = document.createElement('div');
+    hiddenSibling.setAttribute('aria-hidden', true);
     document.body.appendChild(hiddenSibling);
 
     rerender(component);
-    fireEvent.click(getByText("Close Me"));
+    fireEvent.click(getByText('Close Me'));
     rerender(component);
 
     expect(asFragment()).toMatchSnapshot();
@@ -310,11 +310,11 @@ describe("Closing the dialog", () => {
   });
 });
 
-describe("DialogContent", () => {
-  test("expects a DialogLabel child", () => {
+describe('DialogContent', () => {
+  test('expects a DialogLabel child', () => {
     const component = <DialogContent>Content</DialogContent>;
     render(component);
-    expect(console.error).toHaveBeenCalledWith(`Warning: Failed prop type: ${needsDialogLabel("DialogContent")}
+    expect(console.error).toHaveBeenCalledWith(`Warning: Failed prop type: ${needsDialogLabel('DialogContent')}
     in DialogContent`);
   });
 
@@ -340,8 +340,8 @@ describe("DialogContent", () => {
   });
 });
 
-describe("DialogLabel", () => {
-  test("id is required", () => {
+describe('DialogLabel', () => {
+  test('id is required', () => {
     const component = <DialogLabel />;
     render(component);
     expect(console.error)
@@ -350,8 +350,8 @@ describe("DialogLabel", () => {
   });
 });
 
-describe("DialogDescription", () => {
-  test("id is required", () => {
+describe('DialogDescription', () => {
+  test('id is required', () => {
     const component = <DialogDescription />;
     render(component);
     expect(console.error)
@@ -360,8 +360,8 @@ describe("DialogDescription", () => {
   });
 });
 
-describe("AlertDialog", () => {
-  test("DialogDescription is required", () => {
+describe('AlertDialog', () => {
+  test('DialogDescription is required', () => {
     const component = (
       <div>
         <Dialog>
@@ -375,7 +375,7 @@ describe("AlertDialog", () => {
     );
     const { unmount } = render(component);
 
-    expect(console.error).toHaveBeenCalledWith(`Warning: Failed prop type: ${needsDialogDescription("DialogContent")}
+    expect(console.error).toHaveBeenCalledWith(`Warning: Failed prop type: ${needsDialogDescription('DialogContent')}
     in DialogContent`);
 
     unmount();
@@ -402,7 +402,7 @@ describe("AlertDialog", () => {
   });
 });
 
-test("Nested Dialog Modals", () => {
+test('Nested Dialog Modals', () => {
   const component = (
     <div>
       <Dialog>
@@ -426,12 +426,12 @@ test("Nested Dialog Modals", () => {
 
   expect(asFragment()).toMatchSnapshot();
 
-  fireEvent.click(getByText("Open First"));
+  fireEvent.click(getByText('Open First'));
   rerender(component);
 
   expect(asFragment()).toMatchSnapshot();
 
-  fireEvent.click(getByText("Open Second"));
+  fireEvent.click(getByText('Open Second'));
   rerender(component);
 
   expect(asFragment()).toMatchSnapshot();

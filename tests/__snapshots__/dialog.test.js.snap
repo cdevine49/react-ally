@@ -29,9 +29,7 @@ exports[`AlertDialog has correct role 1`] = `
     </div>
   </div>
   <div>
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -64,9 +62,7 @@ exports[`Closing the dialog Click the dialog 1`] = `
   <div
     aria-hidden="true"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -78,9 +74,7 @@ exports[`Closing the dialog Click the overlay 1`] = `
   <div
     aria-hidden="false"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -92,9 +86,7 @@ exports[`Closing the dialog Clicking DialogCloseButton 1`] = `
   <div
     aria-hidden="false"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -106,9 +98,7 @@ exports[`Closing the dialog Escape key 1`] = `
   <div
     aria-hidden="false"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -120,9 +110,7 @@ exports[`Closing the dialog ModalRoot siblings return to original aria-hidden st
   <div
     aria-hidden="false"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -180,9 +168,7 @@ exports[`DialogContent aria-labelledby DialogLabel's id 1`] = `
 exports[`Nested Dialog Modals 1`] = `
 <DocumentFragment>
   <div>
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open First
     </button>
   </div>
@@ -194,9 +180,7 @@ exports[`Nested Dialog Modals 2`] = `
   <div
     aria-hidden="true"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open First
     </button>
   </div>
@@ -214,9 +198,7 @@ exports[`Nested Dialog Modals 2`] = `
         >
           First Header
         </h2>
-        <button
-          aria-disabled="false"
-        >
+        <button>
           Open Second
         </button>
         <button>
@@ -233,9 +215,7 @@ exports[`Nested Dialog Modals 3`] = `
   <div
     aria-hidden="true"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open First
     </button>
   </div>
@@ -255,9 +235,7 @@ exports[`Nested Dialog Modals 3`] = `
         >
           First Header
         </h2>
-        <button
-          aria-disabled="false"
-        >
+        <button>
           Open Second
         </button>
         <button>
@@ -291,9 +269,7 @@ exports[`Nested Dialog Modals 3`] = `
 
 exports[`Opening a dialog Clicking DialogOpenButton 1`] = `
 <DocumentFragment>
-  <button
-    aria-disabled="false"
-  >
+  <button>
     Open Me
   </button>
   <div>
@@ -321,9 +297,7 @@ exports[`Opening a dialog Sets modalRoot's siblings to aria-hidden 1`] = `
   <div
     aria-hidden="true"
   >
-    <button
-      aria-disabled="false"
-    >
+    <button>
       Open Me
     </button>
   </div>
@@ -355,9 +329,7 @@ exports[`Opening a dialog Sets modalRoot's siblings to aria-hidden 1`] = `
 
 exports[`default 1`] = `
 <DocumentFragment>
-  <button
-    aria-disabled="false"
-  >
+  <button>
     Open Me
   </button>
 </DocumentFragment>
@@ -382,9 +354,7 @@ exports[`initializeOpen prop 1`] = `
       </div>
     </div>
   </div>
-  <button
-    aria-disabled="false"
-  >
+  <button>
     Open Me
   </button>
 </DocumentFragment>

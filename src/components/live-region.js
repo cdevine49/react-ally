@@ -27,11 +27,9 @@ const _ensureUndefined = (props, propName, componentName) => {
   }
 };
 
-const LiveRegion = props => {
+export const LiveRegion = props => {
   return <div aria-atomic={true} aria-live="polite" aria-relevant="additions text" {...props} role={undefined} />;
 };
-
-export default LiveRegion;
 
 LiveRegion.propTypes = {
   'aria-atomic': bool,

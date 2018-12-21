@@ -1,7 +1,6 @@
 import React, { Fragment, createContext, forwardRef, useContext, useState, useEffect, useRef } from 'react';
 import ReactDOM from 'react-dom';
 import { disableBodyScroll, enableBodyScroll } from 'body-scroll-lock';
-import Button from '../elements/button';
 import { bool, element, object, string } from 'prop-types';
 import { needsDialogDescription, needsDialogLabel } from '../errors';
 
@@ -90,7 +89,7 @@ const DialogOpenButton = props => {
     [open]
   );
 
-  return <Button ref={buttonRef} {...props} />;
+  return <button ref={buttonRef} {...props} />;
 };
 
 DialogOpenButton.displayName = 'DialogOpenButton';

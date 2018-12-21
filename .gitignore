@@ -8,5 +8,4 @@ lib
 node_modules
 *.log
 
-src/elements
-/stories
+stories

@@ -1,6 +1,6 @@
 import React from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
-import { AccordionGroup, Accordion, AccordionHeader, AccordionContent } from '../components/accordion';
+import { AccordionGroup, Accordion, AccordionHeader, AccordionContent } from '../es/react-ally.js';
 
 afterEach(cleanup);
 
