@@ -1,6 +1,10 @@
 src/
 stories/
-test/
+tests/
 .babelrc
 .npmignore
 .storybook
+.gitignore
+.vscode
+.prettierrc
+rollup.config.js

@@ -120,16 +120,48 @@ const MyTimer = () => <Timer />;
 ### Dialog (Modal)
 
 ```jsx
-import { Dialog, DialogOpenButton, DialogContent } from 'react-ally';
+import {
+  Dialog,
+  DialogOpenButton,
+  DialogCloseButton,
+  DialogContent,
+  DialogLabel,
+  DialogContent,
+  DialogFirstTabbableElement,
+  DialogLastTabbableElement,
+  DialogLeastDangerousElement
+} from 'react-ally';
 
 const MyDialog = () => (
 
   <Dialog initializeOpen={type: Boolean, default: false, purpose: "opens the dialog on initial render"}>
-   <DialogOpenButton>Click me to open the dialog</DialogOpenButton>
+   <DialogOpenButton
+   {...propsSpreadOverElement}
+   >
+      Click me to open the dialog
+    </DialogOpenButton>
 
   {<!-- DialogContent is appended to the document body on open, removed on close  -->}
   {<!-- Make it an Alert Dialog by passing role="alertdialog" to the DialogContent component  -->}
-   <DialogContent>
+   <DialogContent
+    closeOnOverlayClick={
+      type: Boolean,
+      default: true,
+      purpose: "determines whether clicking on overlay closes modal"
+    }
+    focusOnLast={
+      type: Boolean,
+      default: false,
+      purpose="gives initial focus to LastTabbableElement, unless LeastDangerousElement exists"
+    }
+    overlayBackgroundColor={
+      type: String,
+      default: "rgba(255,255,255,0.75)",
+      purpose="set overlay background color"
+    }
+    overlayProps={type: Object, default: {}, purpose="spread over overlay div element"}
+    {...otherPropsSpreadOverDialogContentElement}
+   >
       <DialogLabel
         id={type: String, required: true, purpose: "used in DialogContent's aria-label"}
         {...otherPropsSpreadOverElement}
@@ -142,6 +174,21 @@ const MyDialog = () => (
         >
         Optional Description of the dialog's purpose (required if role="alertdialog")
       </DialogDescription>
+
+      {<!-- Required to keep focus inside the dialog  -->}
+      <DialogFirstTabbableElement>
+        <button>Take Permanent Action</button>
+      </DialogFirstTabbableElement>
+
+      {<!-- Gets initial focus, use when FirstTabbableElement is a dangerous action  -->}
+      <DialogLeastDangerousElement>
+        <DialogCloseButton>Close</DialogCloseButton>
+      </DialogLeastDangerousElement>
+
+      {<!-- Required to keep focus inside the dialog  -->}
+      <DialogLastTabbableElement>
+        <a href="www.google.com">Google</a>
+      </DialogLastTabbableElement>
    </DialogContent>
   </Dialog>
 );

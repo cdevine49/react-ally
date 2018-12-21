@@ -96,7 +96,7 @@ DialogOpenButton.displayName = 'DialogOpenButton';
 
 const DialogContentContext = createContext({});
 
-const DialogContent = ({ closeOnOverlayClick, overlayBackgroundColor, overlayProps, ...props }) => {
+const DialogContent = ({ closeOnOverlayClick, focusOnLast, overlayBackgroundColor, overlayProps, ...props }) => {
   const { toggleOpen } = useContext(DialogContext);
   const contentRef = useRef(null);
   const firstTabbableElementRef = useRef(null);
@@ -113,6 +113,8 @@ const DialogContent = ({ closeOnOverlayClick, overlayBackgroundColor, overlayPro
   useEffect(() => {
     if (leastDangerousElementRef.current) {
       leastDangerousElementRef.current.focus();
+    } else if (focusOnLast) {
+      lastTabbableElementRef.current.focus();
     } else if (firstTabbableElementRef.current) {
       firstTabbableElementRef.current.focus();
     }
@@ -170,6 +172,7 @@ const DialogContent = ({ closeOnOverlayClick, overlayBackgroundColor, overlayPro
 
 DialogContent.defaultProps = {
   closeOnOverlayClick: true,
+  focusOnLast: false,
   overlayBackgroundColor: 'rgba(255,255,255,0.75)',
   overlayProps: {}
 };
@@ -191,6 +194,7 @@ DialogContent.propTypes = {
       return new Error(needsDialogLabel(componentName));
     }
   },
+  focusOnLast: bool,
   role: (props, _, componentName) => {
     if (props.role !== 'alertdialog') {
       return;
@@ -236,7 +240,7 @@ const DialogCloseButton = forwardRef((props, ref) => {
   return <button {...props} ref={ref} onClick={() => toggleOpen(false)} />;
 });
 
-const LeastDangerousElement = props => {
+const DialogLeastDangerousElement = props => {
   const { leastDangerousElementRef } = useContext(DialogContentContext);
 
   return (
@@ -248,11 +252,11 @@ const LeastDangerousElement = props => {
   );
 };
 
-LeastDangerousElement.propTypes = {
+DialogLeastDangerousElement.propTypes = {
   children: element.isRequired
 };
 
-const FirstTabbableElement = props => {
+const DialogFirstTabbableElement = props => {
   const { firstTabbableElementRef, lastTabbableElementRef } = useContext(DialogContentContext);
 
   const onKeyDown = e => {
@@ -274,11 +278,11 @@ const FirstTabbableElement = props => {
   );
 };
 
-FirstTabbableElement.propTypes = {
+DialogFirstTabbableElement.propTypes = {
   children: element.isRequired
 };
 
-const LastTabbableElement = props => {
+const DialogLastTabbableElement = props => {
   const { firstTabbableElementRef, lastTabbableElementRef } = useContext(DialogContentContext);
 
   const onKeyDown = e => {
@@ -299,7 +303,7 @@ const LastTabbableElement = props => {
   );
 };
 
-LastTabbableElement.propTypes = {
+DialogLastTabbableElement.propTypes = {
   children: element.isRequired
 };
 
@@ -310,7 +314,7 @@ export {
   DialogContent,
   DialogLabel,
   DialogDescription,
-  FirstTabbableElement,
-  LastTabbableElement,
-  LeastDangerousElement
+  DialogFirstTabbableElement,
+  DialogLastTabbableElement,
+  DialogLeastDangerousElement
 };
