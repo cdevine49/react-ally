@@ -1,0 +1,330 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Alert aria-atomic, aria-live, role defaults can't be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    aria-relevant="additions text"
+    role="alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`Alert aria-relevant default can be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    aria-relevant="all"
+    role="alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`Alert defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    aria-relevant="additions text"
+    role="alert"
+  />
+</DocumentFragment>
+`;
+
+exports[`Alert spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="assertive"
+    aria-relevant="additions text"
+    class="my-live-region-class"
+    id="my-live-region"
+    role="alert"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Live Region aria defaults can be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="assertive"
+    aria-relevant="all"
+  />
+</DocumentFragment>
+`;
+
+exports[`Live Region defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="additions text"
+  />
+</DocumentFragment>
+`;
+
+exports[`Live Region logs errors for invalid props 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="1"
+    aria-live="loud"
+    aria-relevant="additions bad text"
+  />
+</DocumentFragment>
+`;
+
+exports[`Live Region spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="additions text"
+    class="my-live-region-class"
+    id="my-live-region"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Log aria-atomic and aria-relevant default can be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="all"
+    role="log"
+  />
+</DocumentFragment>
+`;
+
+exports[`Log aria-live and role defaults can't be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions"
+    role="log"
+  />
+</DocumentFragment>
+`;
+
+exports[`Log defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions"
+    role="log"
+  />
+</DocumentFragment>
+`;
+
+exports[`Log spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="polite"
+    aria-relevant="additions"
+    class="my-live-region-class"
+    id="my-live-region"
+    role="log"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Marquee aria-atomic and aria-relevant default can be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="off"
+    aria-relevant="all"
+    role="marquee"
+  />
+</DocumentFragment>
+`;
+
+exports[`Marquee aria-live and role defaults can't be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="off"
+    aria-relevant="additions text"
+    role="marquee"
+  />
+</DocumentFragment>
+`;
+
+exports[`Marquee defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="off"
+    aria-relevant="additions text"
+    role="marquee"
+  />
+</DocumentFragment>
+`;
+
+exports[`Marquee spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="off"
+    aria-relevant="additions text"
+    class="my-live-region-class"
+    id="my-live-region"
+    role="marquee"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Progressbar aria-valuemax, aria-valuemin, and role defaults can't be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-valuemax="1"
+    aria-valuemin="0"
+    role="progressbar"
+  />
+</DocumentFragment>
+`;
+
+exports[`Progressbar aria-valuenow must be between 0 and 1 inclusive 1`] = `
+<DocumentFragment>
+  <div
+    aria-valuemax="1"
+    aria-valuemin="0"
+    aria-valuenow="-0.001"
+    role="progressbar"
+  />
+</DocumentFragment>
+`;
+
+exports[`Progressbar defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-valuemax="1"
+    aria-valuemin="0"
+    role="progressbar"
+  />
+</DocumentFragment>
+`;
+
+exports[`Progressbar spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-valuemax="1"
+    aria-valuemin="0"
+    class="my-live-region-class"
+    id="my-live-region"
+    role="progressbar"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Status aria-atomic, aria-live, role defaults can't be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="additions text"
+    role="status"
+  />
+</DocumentFragment>
+`;
+
+exports[`Status aria-relevant default can be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="all"
+    role="status"
+  />
+</DocumentFragment>
+`;
+
+exports[`Status defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="additions text"
+    role="status"
+  />
+</DocumentFragment>
+`;
+
+exports[`Status spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="polite"
+    aria-relevant="additions text"
+    class="my-live-region-class"
+    id="my-live-region"
+    role="status"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;
+
+exports[`Timer aria-atomic and aria-relevant default can be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="true"
+    aria-live="off"
+    aria-relevant="all"
+    role="timer"
+  />
+</DocumentFragment>
+`;
+
+exports[`Timer aria-live and role defaults can't be overridden 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="off"
+    aria-relevant="additions text"
+    role="timer"
+  />
+</DocumentFragment>
+`;
+
+exports[`Timer defaults 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="off"
+    aria-relevant="additions text"
+    role="timer"
+  />
+</DocumentFragment>
+`;
+
+exports[`Timer spreads other props including children 1`] = `
+<DocumentFragment>
+  <div
+    aria-atomic="false"
+    aria-live="off"
+    aria-relevant="additions text"
+    class="my-live-region-class"
+    id="my-live-region"
+    role="timer"
+  >
+    Hello World
+  </div>
+</DocumentFragment>
+`;

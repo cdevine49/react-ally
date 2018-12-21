@@ -1,0 +1,6 @@
+src/
+stories/
+test/
+.babelrc
+.npmignore
+.storybook

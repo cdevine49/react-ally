@@ -1,0 +1,12 @@
+.cache
+.DS_Store
+.vscode
+.storybook
+dist
+es
+lib
+node_modules
+*.log
+
+src/elements
+/stories
