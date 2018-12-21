@@ -45,7 +45,7 @@ const MyAccordion = () => (
 | -------------- | ------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
 | exactlyOneOpen | false   | no       | Boolean      | If true: initializes the AccordionGroup with the first accordion open (overriding openFirst={false} if set), closes the current accordion when another is opened, and ensures the current accordion stays open until another is opened |
 | openFirst      | true    | no       | Boolean      | If true: initializes the AccordionGroup with the first accordion open                                                                                                                                                                  |
-| headingLevel   | none    | yes      | Number 1-6   | Determines the heading level of the Accordions ex. A headingLevel={3} will result in the accordion buttons being wrapped in <h3> tags                                                                                                  |
+| headingLevel   | none    | yes      | Number 1-6   | Determines the heading level of the Accordions ex. A headingLevel={3} will result in the accordion buttons being wrapped in h3 tags                                                                                                    |
 
 Only accepts <Accordion> as children
 
