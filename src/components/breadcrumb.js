@@ -10,7 +10,7 @@ export const Breadcrumb = ({ listProps, children, ...props }) => {
           const displayName = child && child.type && child.type.displayName;
           if (['BreadcrumbLink', 'Styled(BreadcrumbLink)'].find(el => el === displayName)) {
             if (count - 1 === index) {
-              return React.cloneElement(child, { 'aria-current': true });
+              return React.cloneElement(child, { 'aria-current': 'page' });
             }
 
             return child;
@@ -44,4 +44,4 @@ BreadcrumbLink.propTypes = {
   listItemProps: object
 };
 
-BreadCrumbLink.displayName = 'BreadCrumbLink';
+BreadcrumbLink.displayName = 'BreadcrumbLink';
