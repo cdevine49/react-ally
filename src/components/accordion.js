@@ -41,7 +41,11 @@ export const AccordionGroup = ({ children, exactlyOneOpen, headingLevel, openFir
             headingLevel,
             onKeyDown: e => onKeyDown(e, index),
             open: () =>
-              open(exactlyOneOpen ? { [index]: true } : Object.assign({}, openIndexes, { [index]: !openIndexes[index] })),
+              open(
+                exactlyOneOpen
+                  ? { [index]: true }
+                  : Object.assign({}, openIndexes, { [index]: !openIndexes[index] })
+              ),
             isOpen: !!openIndexes[index]
           });
         }
@@ -51,9 +55,21 @@ export const AccordionGroup = ({ children, exactlyOneOpen, headingLevel, openFir
 };
 
 AccordionGroup.defaultProps = { exactlyOneOpen: false, openFirst: true };
-AccordionGroup.propTypes = { exactlyOneOpen: bool, headingLevel: number.isRequired, openFirst: bool };
+AccordionGroup.propTypes = {
+  exactlyOneOpen: bool,
+  headingLevel: number.isRequired,
+  openFirst: bool
+};
 
-export const Accordion = ({ children, focus, headingLevel: level, id, isOpen, open: onClick, onKeyDown }) => {
+export const Accordion = ({
+  children,
+  focus,
+  headingLevel: level,
+  id,
+  isOpen,
+  open: onClick,
+  onKeyDown
+}) => {
   return (
     <Fragment>
       {React.Children.map(children, child => {
