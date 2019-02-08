@@ -1,0 +1,1585 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Multi selectOnFocus=false initial focus 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=false keydown down-arrow 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-1"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=false keydown down-arrow 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=false keydown end 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=false keydown home 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=false keydown up-arrow 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=false keydown up-arrow 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-3"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true initial focus 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true keydown down-arrow 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-1"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true keydown down-arrow 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true keydown end 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true keydown home 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true keydown up-arrow 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Multi selectOnFocus=true keydown up-arrow 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-3"
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false initial focus 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown control+shift+end 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="true"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown control+shift+home 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="true"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown down-arrow 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-1"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown down-arrow 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown end 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown home 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-0"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown up-arrow 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-4"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false keydown up-arrow 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-3"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false type ahead 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-1"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false type ahead 2`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-2"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`Single selectOnFocus=false type ahead 3`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-2"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class="focused"
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`aria-labelledby 1`] = `
+<DocumentFragment>
+  <ul
+    aria-labelledby="hello-world"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  />
+</DocumentFragment>
+`;
+
+exports[`children 1`] = `
+<DocumentFragment>
+  <ul
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`id 1`] = `
+<DocumentFragment>
+  <ul
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="hello-world"
+    role="listbox"
+    tabindex="0"
+  />
+</DocumentFragment>
+`;
+
+exports[`tabIndex 1`] = `
+<DocumentFragment>
+  <ul
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="-1"
+  />
+</DocumentFragment>
+`;
+
+exports[`value as array 1`] = `
+<DocumentFragment>
+  <ul
+    aria-labelledby="labelId"
+    aria-multiselectable="true"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="true"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="true"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
+
+exports[`value as string 1`] = `
+<DocumentFragment>
+  <ul
+    aria-activedescendant="listboxId-result-item-2"
+    aria-labelledby="labelId"
+    aria-multiselectable="false"
+    id="listboxId"
+    role="listbox"
+    tabindex="0"
+  >
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-0"
+      role="option"
+    >
+      One
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-1"
+      role="option"
+    >
+      Two
+    </li>
+    <li
+      aria-selected="true"
+      class="focused"
+      id="listboxId-result-item-2"
+      role="option"
+    >
+      Three
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-3"
+      role="option"
+    >
+      Four
+    </li>
+    <li
+      aria-selected="false"
+      class=""
+      id="listboxId-result-item-4"
+      role="option"
+    >
+      Five
+    </li>
+  </ul>
+</DocumentFragment>
+`;
