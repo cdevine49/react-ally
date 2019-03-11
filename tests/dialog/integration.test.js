@@ -2,7 +2,7 @@ import React, { useRef } from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
 import { DialogOpenButton, DialogContent, DialogCloseButton } from '../../src/';
 
-jest.mock('../../src/focus-trap', () => ({
+jest.mock('../../src/focus-trap/container', () => ({
   FocusTrap: props => <div data-test-id="focus-trap">{props.children}</div>
 }));
 

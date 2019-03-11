@@ -4,7 +4,7 @@ import { bool, object, string } from 'prop-types';
 import { ESC } from '../keys';
 import { ButtonContext } from './button';
 import { Overlay } from './overlay';
-import { FocusTrap } from '../focus-trap';
+import { FocusTrap } from '../focus-trap/container';
 
 export const ContentContext = createContext({});
 export const Content = React.forwardRef(

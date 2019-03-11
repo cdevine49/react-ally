@@ -4,7 +4,7 @@ import { DialogContent } from '../../src';
 import { Label } from '../../src/dialog/label';
 import { Description } from '../../src/dialog/description';
 
-jest.mock('../../src/focus-trap', () => ({
+jest.mock('../../src/focus-trap/container', () => ({
   FocusTrap: props => <div data-focuslast={props.focusLast} data-test-id="focus-trap" {...props} />
 }));
 

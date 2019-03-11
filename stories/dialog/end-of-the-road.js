@@ -2,11 +2,11 @@ import React, { forwardRef, useRef } from 'react';
 import {
   DialogCloseButton,
   DialogDescription,
-  DialogFirstTabbableElement,
   DialogLabel,
   DialogOpenButton
 } from '../../src/dialog';
 import { DialogOpenLink, EndOfTheRoadWrapper } from './styles';
+import { FirstTabbableElement } from '../../src';
 
 export const EndOfTheRoad = forwardRef(({ link, ...props }, buttonRef) => {
   const contentRef = useRef(null);
@@ -17,13 +17,13 @@ export const EndOfTheRoad = forwardRef(({ link, ...props }, buttonRef) => {
         You activated a fake link or button that goes nowhere! The link or button is present for
         demonstration purposes only.
       </DialogDescription>
-      <DialogFirstTabbableElement>
+      <FirstTabbableElement>
         {(props, ref) => (
           <DialogCloseButton ref={ref} className="close" {...props}>
             Close
           </DialogCloseButton>
         )}
-      </DialogFirstTabbableElement>
+      </FirstTabbableElement>
     </EndOfTheRoadWrapper>
   );
 

@@ -1,6 +1,6 @@
 import React, { forwardRef, useContext } from 'react';
 import { func } from 'prop-types';
-import { FocusTrapContext } from './index';
+import { FocusTrapContext } from './container';
 import { TAB } from '../keys';
 
 const TabbableElement = forwardRef(({ onKeyDown, ...props }, ref) =>
