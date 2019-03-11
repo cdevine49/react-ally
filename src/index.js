@@ -1,1 +1,2 @@
-export * from './components/index';
+export * from './dialog';
+export * from './focus-trap';
