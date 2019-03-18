@@ -28,6 +28,7 @@ export const ArrowTrap = ({ children }) => {
         break;
     }
   };
+
   return (
     <>
       {React.Children.map(children, (child, index) =>
