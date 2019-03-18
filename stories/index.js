@@ -6,6 +6,7 @@ import './accordion';
 // import './alert';
 // import './combobox';
 import './arrow-trap';
+import './breadcrumb';
 import './dialog';
 import './focus-trap';
 import './sectioning';
