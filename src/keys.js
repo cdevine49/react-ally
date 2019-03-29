@@ -1,5 +1,7 @@
 export const TAB = 9;
 export const ESC = 27;
+export const PAGEUP = 33;
+export const PAGEDOWN = 34;
 export const END = 35;
 export const HOME = 36;
 export const LEFT = 37;
