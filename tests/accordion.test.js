@@ -6,16 +6,21 @@ import { UP, DOWN, HOME, END } from '../src/keys';
 afterEach(cleanup);
 
 const Component = ({ multi, headingLevel, initialOpen, firstFocus, secondFocus, thirdFocus }) => (
-  <AccordionGroup multi={multi} headingLevel={headingLevel} initialOpen={initialOpen}>
-    <Accordion id="first">
+  <AccordionGroup
+    id="my-accordion"
+    multi={multi}
+    headingLevel={headingLevel}
+    initialOpen={initialOpen}
+  >
+    <Accordion>
       <AccordionHeader buttonProps={{ onFocus: firstFocus }}>Header 1</AccordionHeader>
       <AccordionPanel>Content 1</AccordionPanel>
     </Accordion>
-    <Accordion id="second">
+    <Accordion>
       <AccordionHeader buttonProps={{ onFocus: secondFocus }}>Header 2</AccordionHeader>
       <AccordionPanel>Content 2</AccordionPanel>
     </Accordion>
-    <Accordion id="third">
+    <Accordion>
       <AccordionHeader buttonProps={{ onFocus: thirdFocus }}>Header 3</AccordionHeader>
       <AccordionPanel>Content 3</AccordionPanel>
     </Accordion>
@@ -24,53 +29,55 @@ const Component = ({ multi, headingLevel, initialOpen, firstFocus, secondFocus, 
 
 const _default = (firstButtonDisabled = false) => `
 <DocumentFragment>
-  <div>
+  <div
+    id="my-accordion"
+  >
     <h2>
       <button
-        aria-controls="first-content"
+        aria-controls="my-accordion-0th-content"
         aria-disabled="${firstButtonDisabled}"
         aria-expanded="true"
-        id="first-button"
+        id="my-accordion-0th-button"
       >
         Header 1
       </button>
     </h2>
     <div
       aria-hidden="false"
-      aria-labelledby="first-button"
-      id="first-content"
+      aria-labelledby="my-accordion-0th-button"
+      id="my-accordion-0th-content"
     >
       Content 1
     </div>
     <h2>
       <button
-        aria-controls="second-content"
+        aria-controls="my-accordion-1th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="second-button"
+        id="my-accordion-1th-button"
       >
         Header 2
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="second-button"
-      id="second-content"
+      aria-labelledby="my-accordion-1th-button"
+      id="my-accordion-1th-content"
     />
     <h2>
       <button
-        aria-controls="third-content"
+        aria-controls="my-accordion-2th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="third-button"
+        id="my-accordion-2th-button"
       >
         Header 3
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="third-button"
-      id="third-content"
+      aria-labelledby="my-accordion-2th-button"
+      id="my-accordion-2th-content"
     />
   </div>
 </DocumentFragment>
@@ -83,51 +90,53 @@ test('default', () => {
 
 const allclosed = `
 <DocumentFragment>
-  <div>
+  <div
+    id="my-accordion"
+  >
     <h2>
       <button
-        aria-controls="first-content"
+        aria-controls="my-accordion-0th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="first-button"
+        id="my-accordion-0th-button"
       >
         Header 1
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="first-button"
-      id="first-content"
+      aria-labelledby="my-accordion-0th-button"
+      id="my-accordion-0th-content"
     />
     <h2>
       <button
-        aria-controls="second-content"
+        aria-controls="my-accordion-1th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="second-button"
+        id="my-accordion-1th-button"
       >
         Header 2
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="second-button"
-      id="second-content"
+      aria-labelledby="my-accordion-1th-button"
+      id="my-accordion-1th-content"
     />
     <h2>
       <button
-        aria-controls="third-content"
+        aria-controls="my-accordion-2th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="third-button"
+        id="my-accordion-2th-button"
       >
         Header 3
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="third-button"
-      id="third-content"
+      aria-labelledby="my-accordion-2th-button"
+      id="my-accordion-2th-content"
     />
   </div>
 </DocumentFragment>
@@ -135,55 +144,57 @@ const allclosed = `
 
 const allOpen = `
 <DocumentFragment>
-  <div>
+  <div
+    id="my-accordion"
+  >
     <h2>
       <button
-        aria-controls="first-content"
+        aria-controls="my-accordion-0th-content"
         aria-disabled="false"
         aria-expanded="true"
-        id="first-button"
+        id="my-accordion-0th-button"
       >
         Header 1
       </button>
     </h2>
     <div
       aria-hidden="false"
-      aria-labelledby="first-button"
-      id="first-content"
+      aria-labelledby="my-accordion-0th-button"
+      id="my-accordion-0th-content"
     >
       Content 1
     </div>
     <h2>
       <button
-        aria-controls="second-content"
+        aria-controls="my-accordion-1th-content"
         aria-disabled="false"
         aria-expanded="true"
-        id="second-button"
+        id="my-accordion-1th-button"
       >
         Header 2
       </button>
     </h2>
     <div
       aria-hidden="false"
-      aria-labelledby="second-button"
-      id="second-content"
+      aria-labelledby="my-accordion-1th-button"
+      id="my-accordion-1th-content"
     >
       Content 2
     </div>
     <h2>
       <button
-        aria-controls="third-content"
+        aria-controls="my-accordion-2th-content"
         aria-disabled="false"
         aria-expanded="true"
-        id="third-button"
+        id="my-accordion-2th-button"
       >
         Header 3
       </button>
     </h2>
     <div
       aria-hidden="false"
-      aria-labelledby="third-button"
-      id="third-content"
+      aria-labelledby="my-accordion-2th-button"
+      id="my-accordion-2th-content"
     >
       Content 3
     </div>
@@ -267,53 +278,55 @@ describe('multi false', () => {
     fireEvent.click(getByText('Header 2'));
     expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
-  <div>
+  <div
+    id="my-accordion"
+  >
     <h2>
       <button
-        aria-controls="first-content"
+        aria-controls="my-accordion-0th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="first-button"
+        id="my-accordion-0th-button"
       >
         Header 1
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="first-button"
-      id="first-content"
+      aria-labelledby="my-accordion-0th-button"
+      id="my-accordion-0th-content"
     />
     <h2>
       <button
-        aria-controls="second-content"
+        aria-controls="my-accordion-1th-content"
         aria-disabled="true"
         aria-expanded="true"
-        id="second-button"
+        id="my-accordion-1th-button"
       >
         Header 2
       </button>
     </h2>
     <div
       aria-hidden="false"
-      aria-labelledby="second-button"
-      id="second-content"
+      aria-labelledby="my-accordion-1th-button"
+      id="my-accordion-1th-content"
     >
       Content 2
     </div>
     <h2>
       <button
-        aria-controls="third-content"
+        aria-controls="my-accordion-2th-content"
         aria-disabled="false"
         aria-expanded="false"
-        id="third-button"
+        id="my-accordion-2th-button"
       >
         Header 3
       </button>
     </h2>
     <div
       aria-hidden="true"
-      aria-labelledby="third-button"
-      id="third-content"
+      aria-labelledby="my-accordion-2th-button"
+      id="my-accordion-2th-content"
     />
   </div>
 </DocumentFragment>

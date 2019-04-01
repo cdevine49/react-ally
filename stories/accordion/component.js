@@ -9,8 +9,9 @@ export const Component = ({ headingLevel, initialOpen }) => (
       multi={boolean('multi', true)}
       headingLevel={headingLevel}
       initialOpen={initialOpen}
+      id="my-accordion"
     >
-      <Accordion id="personal-info">
+      <Accordion>
         <Header>
           Personal Information
           <Icon />
@@ -48,7 +49,7 @@ export const Component = ({ headingLevel, initialOpen }) => (
           </fieldset>
         </Panel>
       </Accordion>
-      <Accordion id="billing-info">
+      <Accordion>
         <Header>
           Billing Address
           <Icon />
@@ -79,7 +80,7 @@ export const Component = ({ headingLevel, initialOpen }) => (
           </fieldset>
         </Panel>
       </Accordion>
-      <Accordion id="shipping-info">
+      <Accordion>
         <Header>
           Shipping Address
           <Icon />

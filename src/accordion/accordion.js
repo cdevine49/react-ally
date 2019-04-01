@@ -1,12 +1,5 @@
 import React from 'react';
-import { string } from 'prop-types';
 
-export const Accordion = ({ children, id, ...props }) => (
-  <>
-    {React.Children.map(children, child =>
-      React.cloneElement(child, { accordionId: id, ...props })
-    )}
-  </>
+export const Accordion = ({ children, ...props }) => (
+  <>{React.Children.map(children, child => React.cloneElement(child, { ...props }))}</>
 );
-
-Accordion.propTypes = { id: string.isRequired };

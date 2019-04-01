@@ -19,51 +19,52 @@ If you'd rather bring in react-ally through a script tag, you can find UMD build
 ### Accordion
 
 ```jsx
-import { AccordionGroup, Accordion, AccordionHeader, AccordionContent } from 'react-ally';
+import
+{ AccordionGroup, Accordion, AccordionHeader, AccordionPanel }
+from 'react-ally';
 
 const MyAccordion = () => (
-  <AccordionGroup headingLevel={3}>
-    <Accordion id="first">
-      <AccordionHeader>First Header</AccordionHeader>
-      <AccordionContent>First Content</AccordionContent>
-    </Accordion>
-    <Accordion id="second">
-      <AccordionHeader className="header-class" buttonProps={{ className="button-class" }}>
-        Second Header
+  <AccordionGroup
+    /*
+    Number between 1 and 6 which sets the level of accordion headers.
+    If using the Section / Heading components in this library, those
+    will handle the level for you.
+  */
+    headingLevel={2}
+    /*
+    String used on the wrapping div and to create the ids + aria attributes
+    on the Headers and Contents.
+  */
+    id="example-id"
+    /*
+    One of "none", "first", "all"
+    Determines which of the accordions start opened.
+  */
+    initialOpen="first"
+    /*
+    Boolean that determines whether multiple accordions can be open at once.
+  */
+    multi={true}
+  >
+    <Accordion>
+      <AccordionHeader
+      /*
+        Object of props added to the header button.  Other props will be added
+        to the heading tag.
+      */
+        buttonProps={{ className="button-class" }}
+      >
+        First Header
       </AccordionHeader>
-      <AccordionContent>Second Content</AccordionContent>
+      <AccordionPanel>First Content</AccordionPanel>
+    </Accordion>
+    <Accordion>
+      <AccordionHeader>Second Header</AccordionHeader>
+      <AccordionPanel>Second Content</AccordionPanel>
     </Accordion>
   </AccordionGroup>
 );
 ```
-
-#### Props
-
-##### AccordionGroup
-
-| Prop           | Default | Required | Valid values | Purpose                                                                                                                                                                                                                                |
-| -------------- | ------- | -------- | ------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| exactlyOneOpen | false   | no       | Boolean      | If true: initializes the AccordionGroup with the first accordion open (overriding openFirst={false} if set), closes the current accordion when another is opened, and ensures the current accordion stays open until another is opened |
-| openFirst      | true    | no       | Boolean      | If true: initializes the AccordionGroup with the first accordion open                                                                                                                                                                  |
-| headingLevel   | none    | yes      | Number 1-6   | Determines the heading level of the Accordions ex. A headingLevel={3} will result in the accordion buttons being wrapped in h3 tags                                                                                                    |
-
-Only accepts <Accordion> as children
-
-##### Accordion
-
-| Prop | Default | Required | Valid values | Purpose                                          |
-| ---- | ------- | -------- | ------------ | ------------------------------------------------ |
-| id   | none    | yes      | String       | used to handle aria-controls and aria-labelledby |
-
-Only accepts <AccordionHeader> and <AccordionContent> as children
-
-##### AccordionHeader
-
-The only props used here are the ones the user wishes to spread over the elements. To spread props to the button, pass them in a buttonProps object `<AccordionHeader buttonProps={{/* your props */}}>` all other props will be spread on the heading tag.
-
-##### AccordionContent
-
-All props will be spread over the wrapping div that contains your content
 
 ### Live Region
 

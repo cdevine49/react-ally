@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { bool, number, oneOf } from 'prop-types';
+import { bool, number, oneOf, string } from 'prop-types';
 import { ArrowTrap } from '../arrow-trap';
 import { Section } from '../sectioning';
 import logError from '../log-error';
@@ -22,7 +22,13 @@ const initialState = (initialOpen, children) => {
   }
 };
 
-export const Group = ({ children, multi = true, headingLevel, initialOpen = 'first' }) => {
+export const Group = ({
+  children,
+  multi = true,
+  headingLevel,
+  initialOpen = 'first',
+  ...props
+}) => {
   const [openIndexes, setOpen] = useState(initialState(initialOpen, children));
   const open = multi
     ? index => setOpen(prevState => Object.assign({}, prevState, { [index]: !openIndexes[index] }))
@@ -32,12 +38,13 @@ export const Group = ({ children, multi = true, headingLevel, initialOpen = 'fir
 
   return (
     <Section levelOverride={headingLevel}>
-      <div>
+      <div {...props}>
         <ArrowTrap>
           {React.Children.map(children, (child, index) =>
             React.cloneElement(child, {
-              multi,
+              accordionId: `${props.id}-${index}th`,
               isOpen: !!openIndexes[index],
+              multi,
               onClickHeader: () => open(index)
             })
           )}
@@ -48,7 +55,8 @@ export const Group = ({ children, multi = true, headingLevel, initialOpen = 'fir
 };
 
 Group.propTypes = {
-  initialOpen: oneOf(['none', 'first', 'all']),
   headingLevel: number,
+  id: string.isRequired,
+  initialOpen: oneOf(['none', 'first', 'all']),
   multi: bool
 };
