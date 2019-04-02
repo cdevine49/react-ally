@@ -8,12 +8,12 @@ const Example = ({ manual }) => (
     <h1>Example</h1>
     <Tabs id="tabs-id">
       <TabList manual={manual}>
-        <Tab id="nils">Nils Frahm</Tab>
-        <Tab id="agnes">Agnes Obel</Tab>
-        <Tab id="complex">Joke</Tab>
+        <Tab>Nils Frahm</Tab>
+        <Tab>Agnes Obel</Tab>
+        <Tab>Joke</Tab>
       </TabList>
       <TabPanels>
-        <TabPanel id="nils-tab">
+        <TabPanel>
           <p>
             Nils Frahm is a German musician, composer and record producer based in Berlin. He is
             known for combining classical and electronic music and for an unconventional approach to
@@ -21,7 +21,7 @@ const Example = ({ manual }) => (
             drum machine, and Moog Taurus.
           </p>
         </TabPanel>
-        <TabPanel id="agnes-tab">
+        <TabPanel>
           <p>
             Agnes Caroline Thaarup Obel is a Danish singer/songwriter. Her first album,
             Philharmonics, was released by PIAS Recordings on 4 October 2010 in Europe.
@@ -29,7 +29,7 @@ const Example = ({ manual }) => (
             (BEA) for sales of 10,000 Copies.
           </p>
         </TabPanel>
-        <TabPanel id="complexcomplex">
+        <TabPanel>
           <p>Fear of complicated buildings:</p>
           <p>A complex complex complex.</p>
         </TabPanel>

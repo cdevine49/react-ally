@@ -13,6 +13,6 @@ import './sectioning';
 import './spin-button';
 // import './listbox';
 import './radio-group';
-// import './tabs';
+import './tabs';
 // import './toolbar';
 import './tooltip';

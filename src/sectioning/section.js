@@ -1,4 +1,5 @@
 import React, { useContext } from 'react';
+import { number } from 'prop-types';
 import { Level } from './level';
 
 export const Section = ({ children, levelOverride }) => {
@@ -8,4 +9,8 @@ export const Section = ({ children, levelOverride }) => {
       <>{children}</>
     </Level.Provider>
   );
+};
+
+Section.propTypes = {
+  levelOverride: number
 };

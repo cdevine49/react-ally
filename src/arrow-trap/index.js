@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { END, HOME, UP, DOWN, LEFT, RIGHT } from '../keys';
 
-export const ArrowTrap = ({ children }) => {
+export const ArrowTrap = ({ children, toolbarItem = false }) => {
   const [focusIndex, setFocusIndex] = useState();
   const onKeyDown = ({ keyCode }, index) => {
     const count = React.Children.count(children);
@@ -9,16 +9,24 @@ export const ArrowTrap = ({ children }) => {
     const prev = () => setFocusIndex((index + count - 1) % count);
     switch (keyCode) {
       case HOME:
-        setFocusIndex(0);
+        if (!toolbarItem) {
+          setFocusIndex(0);
+        }
         break;
       case END:
-        setFocusIndex(count - 1);
+        if (!toolbarItem) {
+          setFocusIndex(count - 1);
+        }
         break;
       case LEFT:
-        prev();
+        if (!toolbarItem || index > 0) {
+          prev();
+        }
         break;
       case RIGHT:
-        next();
+        if (!toolbarItem || index + 1 === count) {
+          next();
+        }
         break;
       case UP:
         prev();

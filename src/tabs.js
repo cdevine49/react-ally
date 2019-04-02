@@ -1,5 +1,5 @@
 import React, { Fragment, createContext, useContext, useEffect, useRef, useState } from 'react';
-import { string } from 'prop-types';
+import { bool, string } from 'prop-types';
 
 const TabsContext = createContext({});
 export const Tabs = ({ initialActiveIndex = 0, id, ...props }) => {
@@ -29,6 +29,10 @@ export const TabList = ({ manual = false, ...props }) => {
       )}
     </div>
   );
+};
+
+TabList.propTypes = {
+  manual: bool
 };
 
 const tabId = (tabsId, index) => `${tabsId}-${index}th-tab`;
