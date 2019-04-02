@@ -102,6 +102,104 @@ const MyBreadcrumb = () => (
 );
 ```
 
+### Section / Heading
+
+```jsx
+import { Section, Heading } from 'react-ally';
+
+const MyApp = (
+  <>
+    <Heading /*h1*/>Top Level</Heading>
+    <Section>
+      <Heading /*h2*/>Second Level First Sibling</Heading> // <h1 />
+      <Section>
+        <Heading /*h3*/>Third Level</Heading>
+      </Section>
+    </Section>
+    <Section>
+      <Heading /*h2*/>Second Level Second Sibling</Heading>
+    </Section>
+    <Section
+      /*
+      Number that overrides the the heading level for this section and
+      its children.  Main use case is if adding <Section /> components
+      piecemeal to an existing app.
+    */
+      levelOverride={4}
+    >
+      <Heading /*h4*/>Fourth Level By Override</Heading>
+    </Section>
+  </>
+);
+```
+
+### Spin Button
+
+```jsx
+import React { useState } from 'react';
+import { SpinButton, UpButton, DownButton } from 'react-ally';
+
+const MySpinButton = {
+  const [value, setValue] = useState(50);
+  return (
+    <SpinButton
+      aria-label="Number from 0 to 100"
+      /*
+        Number - the upper limit of the value
+      */
+      aria-valuemax={100}
+      /*
+        Number - the lower limit of the value
+      */
+      aria-valuemin={0}
+      /*
+        Number - the current value
+      */
+      aria-valuenow={value}
+      /*
+        Function - sets the value
+      */
+      onChange={setValue}
+    >
+      <DownButton>-</DownButton>
+      {value}
+      <UpButton>+</UpButton>
+    </SpinButton>
+  );
+};
+```
+
+### Tabs
+
+```jsx
+import { Tabs, TabList, Tab, TabPanels, TabPanel } from 'react-ally';
+
+const MyTabs = () => (
+  <Tabs
+    /*
+      String that sets the ids and related aria attributes on tabs and panels
+    */
+    id="example-tabs-id"
+  >
+    <TabList
+      /*
+        Boolean determining whether focusing a tab activates it
+      */
+      manual={false}
+    >
+      <Tab>Animals</Tab>
+      <Tab>Vegetables</Tab>
+      <Tab>Minerals</Tab>
+    </TabList>
+    <TabPanels>
+      <TabPanel>Cats and Dogs</TabPanel>
+      <TabPanel>Peas and Carrots</TabPanel>
+      <TabPanel>Rocks</TabPanel>
+    </TabPanels>
+  </Tabs>
+);
+```
+
 ## Versioning
 
 We use [SemVer](http://semver.org/) for versioning. For the versions available, see the [tags on this repository](https://github.com/your/project/tags).
