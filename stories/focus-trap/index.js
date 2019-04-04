@@ -1,10 +1,12 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { storiesOf } from '@storybook/react';
-import { FocusTrap, FirstTabbableElement, LastTabbableElement } from '../../src/focus-trap';
+import { FocusTrap } from '../../src/focus-trap';
 
 const Component = () => {
   const [show, setShow] = useState(false);
-  const ref = useRef(null);
+  const firstTabbableElementRef = useRef(null);
+  const lastTabbableElementRef = useRef(null);
+  const wrapperRef = useRef(null);
   const buttonRef = useRef(null);
 
   useEffect(() => {
@@ -21,27 +23,23 @@ const Component = () => {
         Enter Focus Trap
       </button>
       {show && (
-        <FocusTrap ref={ref}>
-          <FirstTabbableElement>
-            {(props, ref) => (
-              <button ref={ref} onClick={() => setShow(false)} {...props}>
-                Close Focus Trap
-              </button>
-            )}
-          </FirstTabbableElement>
-          <div>Not focusable</div>
-          <input />
-          <LastTabbableElement>
-            {(props, ref) => (
-              <button ref={ref} {...props}>
-                Last Tabbable Element in Focus Trap
-              </button>
-            )}
-          </LastTabbableElement>
+        <FocusTrap
+          firstTabbableElementRef={firstTabbableElementRef}
+          lastTabbableElementRef={lastTabbableElementRef}
+          wrapperRef={wrapperRef}
+        >
+          <div ref={wrapperRef}>
+            <button ref={firstTabbableElementRef} onClick={() => setShow(false)}>
+              Close Focus Trap
+            </button>
+            <div>Not focusable</div>
+            <input />
+            <button ref={lastTabbableElementRef}>Last Tabbable Element in Focus Trap</button>
+          </div>
         </FocusTrap>
       )}
     </>
   );
 };
 
-storiesOf('Focus Trap', module).add('Default', () => <Component />);
+storiesOf('Focus Trap', module).add('Default', () => <FocusTrap />);
