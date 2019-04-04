@@ -42,4 +42,4 @@ const Component = () => {
   );
 };
 
-storiesOf('Focus Trap', module).add('Default', () => <FocusTrap />);
+storiesOf('Focus Trap', module).add('Default', () => <Component />);
