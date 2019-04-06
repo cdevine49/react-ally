@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { ContentContext } from './content';
+import { DialogContext } from './context';
 
 export const Description = props => {
   const mounted = useRef(false);
@@ -8,7 +8,7 @@ export const Description = props => {
     mounted.current = true;
   }, []);
 
-  const { setDescribedby, contentId } = useContext(ContentContext);
+  const { setDescribedby, contentId } = useContext(DialogContext);
   const id = `${contentId}-description`;
   if (!mounted.current) {
     setDescribedby(id);

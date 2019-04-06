@@ -1,33 +1,37 @@
-import React, { forwardRef, useRef } from 'react';
-import {
-  DialogCloseButton,
-  DialogDescription,
-  DialogLabel,
-  DialogOpenButton
-} from '../../src/dialog';
+import React, { forwardRef, useRef, useState } from 'react';
+import { DialogDescription, DialogLabel } from '../../src/dialog';
 import { DialogOpenLink, EndOfTheRoadWrapper } from './styles';
-import { FirstTabbableElement } from '../../src';
 
-export const EndOfTheRoad = forwardRef(({ link, ...props }, buttonRef) => {
-  const contentRef = useRef(null);
-  const modal = (
-    <EndOfTheRoadWrapper id="end-of-the-road" ref={contentRef}>
-      <DialogLabel>End of the Road!</DialogLabel>
-      <DialogDescription>
-        You activated a fake link or button that goes nowhere! The link or button is present for
-        demonstration purposes only.
-      </DialogDescription>
-      <FirstTabbableElement>
-        {(props, ref) => (
-          <DialogCloseButton ref={ref} className="close" {...props}>
-            Close
-          </DialogCloseButton>
-        )}
-      </FirstTabbableElement>
-    </EndOfTheRoadWrapper>
+export const EndOfTheRoad = forwardRef(({ link, ...props }, ref) => {
+  const firstTabbableElementRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const [isOpen, setIsOpen] = useState(false);
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
+
+  const OpenElement = link ? DialogOpenLink : 'button';
+
+  return (
+    <>
+      <OpenElement ref={ref} onClick={open}>
+        {props.children}
+      </OpenElement>
+      <EndOfTheRoadWrapper
+        ref={wrapperRef}
+        close={() => setIsOpen(false)}
+        firstTabbableElementRef={firstTabbableElementRef}
+        id="end-dialog"
+        isOpen={isOpen}
+      >
+        <DialogLabel>End of the Road!</DialogLabel>
+        <DialogDescription>
+          You activated a fake link or button that goes nowhere! The link or button is present for
+          demonstration purposes only.
+        </DialogDescription>
+        <button ref={firstTabbableElementRef} onClick={close}>
+          Close
+        </button>
+      </EndOfTheRoadWrapper>
+    </>
   );
-
-  const Wrapper = link ? DialogOpenLink : DialogOpenButton;
-
-  return <Wrapper ref={buttonRef} modal={modal} {...props} />;
 });

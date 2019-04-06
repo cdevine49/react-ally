@@ -1,7 +1,6 @@
-import { Button as DialogOpenButton } from './button';
-import { CloseButton as DialogCloseButton } from './close-button';
-import { Content as DialogContent } from './content';
+import { Dialog } from './dialog';
 import { Description as DialogDescription } from './description';
 import { Label as DialogLabel } from './label';
+import { Helpers as DialogHelpers } from './helpers';
 
-export { DialogOpenButton, DialogCloseButton, DialogContent, DialogLabel, DialogDescription };
+export { Dialog, DialogLabel, DialogDescription, DialogHelpers };

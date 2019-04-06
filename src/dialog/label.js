@@ -1,5 +1,5 @@
 import React, { useContext, useEffect, useRef } from 'react';
-import { ContentContext } from './content';
+import { DialogContext } from './context';
 
 export const Label = props => {
   const mounted = useRef(false);
@@ -8,7 +8,7 @@ export const Label = props => {
     mounted.current = true;
   }, []);
 
-  const { setLabelledby, contentId } = useContext(ContentContext);
+  const { setLabelledby, contentId } = useContext(DialogContext);
   const id = `${contentId}-label`;
   if (!mounted.current) {
     setLabelledby(id);

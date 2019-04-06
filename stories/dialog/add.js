@@ -1,48 +1,46 @@
-import React, { useRef } from 'react';
+import React, { useRef, useState } from 'react';
 import {
   DialogOpenButton,
   DialogCloseButton,
   DialogLabel,
   DialogDescription
 } from '../../src/dialog';
-import { LastTabbableElement, FirstTabbableElement } from '../../src/focus-trap';
-import { RootContent as DialogContent } from './styles';
+import { RootDialog as Dialog } from './styles';
 import { EndOfTheRoad } from './end-of-the-road';
 
 export const Add = props => {
-  const buttonRef = useRef(null);
-  const contentRef = useRef(null);
+  const firstTabbableElementRef = useRef(null);
+  const lastTabbableElementRef = useRef(null);
+  const wrapperRef = useRef(null);
+
+  const [isOpen, setIsOpen] = useState(false);
+  const open = () => setIsOpen(true);
+  const close = () => setIsOpen(false);
   return (
-    <DialogOpenButton
-      ref={buttonRef}
-      modal={
-        <DialogContent id="add" ref={contentRef}>
-          <DialogLabel>Address Added</DialogLabel>
-          <DialogDescription>
-            <p>
-              The address you provided has been added to your list of delivery addresses. It is
-              ready for immediate use. If you wish to remove it, you can do so from{' '}
-              <FirstTabbableElement>
-                {(props, ref) => (
-                  <EndOfTheRoad ref={ref} link {...props}>
-                    your profile
-                  </EndOfTheRoad>
-                )}
-              </FirstTabbableElement>
-            </p>
-          </DialogDescription>
-          <LastTabbableElement>
-            {({ onKeyDown }, ref) => (
-              <DialogCloseButton ref={ref} id="add-close" onKeyDown={onKeyDown}>
-                OK
-              </DialogCloseButton>
-            )}
-          </LastTabbableElement>
-        </DialogContent>
-      }
-      {...props}
-    >
-      Add
-    </DialogOpenButton>
+    <>
+      <button onClick={open}>Add</button>
+      <Dialog
+        ref={wrapperRef}
+        close={() => setIsOpen(false)}
+        firstTabbableElementRef={firstTabbableElementRef}
+        id="add-dialog"
+        isOpen={isOpen}
+        lastTabbableElementRef={lastTabbableElementRef}
+      >
+        <DialogLabel>Address Added</DialogLabel>
+        <DialogDescription>
+          <p>
+            The address you provided has been added to your list of delivery addresses. It is ready
+            for immediate use. If you wish to remove it, you can do so from{' '}
+            <EndOfTheRoad ref={firstTabbableElementRef} link>
+              your profile
+            </EndOfTheRoad>
+          </p>
+          <button ref={lastTabbableElementRef} onClick={close}>
+            OK
+          </button>
+        </DialogDescription>
+      </Dialog>
+    </>
   );
 };

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
-import { DialogOpenButton, DialogContent } from '../../src/dialog';
+import { Dialog } from '../../src/dialog';
 
-export const DialogOpenLink = styled(DialogOpenButton)`
+export const DialogOpenLink = styled.button`
   border: none;
   border-bottom: 1px solid #707070;
   color: #034575;
@@ -15,7 +15,7 @@ export const DialogOpenLink = styled(DialogOpenButton)`
   }
 `;
 
-const BaseDialogContent = styled(DialogContent)`
+const BaseDialog = styled(Dialog)`
   position: absolute;
   top: 2rem;
   left: 50vw;
@@ -36,7 +36,7 @@ const BaseDialogContent = styled(DialogContent)`
   }
 `;
 
-export const RootContent = styled(BaseDialogContent)`
+export const RootDialog = styled(BaseDialog)`
   form {
     display: flex;
     flex-direction: column;
@@ -91,7 +91,7 @@ export const RootContent = styled(BaseDialogContent)`
   }
 `;
 
-export const EndOfTheRoadWrapper = styled(BaseDialogContent)`
+export const EndOfTheRoadWrapper = styled(BaseDialog)`
   #your-profile-description {
     padding: 10px 20px;
     margin-bottom: 1em;

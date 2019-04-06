@@ -1,6 +1,8 @@
 import React, { useRef } from 'react';
 import { cleanup, fireEvent, render } from 'react-testing-library';
-import { FocusTrap } from '../src/focus-trap';
+import { FocusTrap } from '../src';
+
+jest.useFakeTimers();
 
 beforeEach(() => {
   console.error = jest.fn();
@@ -11,12 +13,15 @@ test('missing required props', () => {
   console.error = jest.fn();
   try {
     render(<FocusTrap />);
-  } catch (_) {}
+  } catch (_) {
+    try {
+      jest.runAllTimers();
+    } catch (_) {}
+  }
   const message = prop => `Warning: Failed prop type: The prop \`${prop}\` is marked as required in \`FocusTrap\`, but its value is \`undefined\`.
     in FocusTrap`;
   expect(console.error).toHaveBeenCalledWith(message('children'));
   expect(console.error).toHaveBeenCalledWith(message('firstTabbableElementRef'));
-  expect(console.error).toHaveBeenCalledWith(message('lastTabbableElementRef'));
   expect(console.error).toHaveBeenCalledWith(message('wrapperRef'));
 });
 
@@ -51,18 +56,21 @@ beforeEach(() => {
 
 test('no initial focus ref', () => {
   render(<Wrapper />);
+  jest.runAllTimers();
   expect(firstFocus).toHaveBeenCalled();
   expect(lastFocus).not.toHaveBeenCalled();
 });
 
 test('initial focus ref', () => {
   render(<Wrapper setInitial />);
+  jest.runAllTimers();
   expect(firstFocus).not.toHaveBeenCalled();
   expect(lastFocus).toHaveBeenCalled();
 });
 
 test('shift+tab from first tabbable element', () => {
   const { getByTestId } = render(<Wrapper />);
+  // Promise.resolve().then(() => jest.useFakeTimers());
 
   const firstButton = getByTestId('first');
   firstButton.focus();
@@ -81,6 +89,7 @@ test('shift+tab from first tabbable element', () => {
 
 test('tab from last tabbable element', () => {
   const { getByTestId } = render(<Wrapper />);
+  // Promise.resolve().then(() => jest.useFakeTimers());
 
   const lastButton = getByTestId('last');
   lastButton.focus();
@@ -99,6 +108,7 @@ test('tab from last tabbable element', () => {
 // not testing tab from wrapper because browsers will handle that
 test('shift+tab from wrapper', () => {
   const { getByTestId } = render(<Wrapper />);
+  // Promise.resolve().then(() => jest.useFakeTimers());
 
   const root = getByTestId('root');
   root.focus();

@@ -40,42 +40,7 @@ export const Button = React.forwardRef(
       }
     };
 
-    const onClose = func => () => {
-      if (isOpen) {
-        return func;
-      }
-    };
-
-    const detachDialog = () => {
-      if (dialogRoot.current.parentNode) {
-        dialogRoot.current.parentNode.removeChild(dialogRoot.current);
-      }
-    };
-
-    const setFocus = () => {
-      if (returnFocus && returnFocus.current) {
-        returnFocus.current.focus();
-      } else {
-        ref.current.focus();
-      }
-    };
-
-    const hideRootFromScreenReaders = () => {
-      let root = ref.current;
-      while (root.parentElement !== root.ownerDocument.body) {
-        root = root.parentElement;
-      }
-      root.setAttribute('aria-hidden', true);
-
-      return () => {
-        root.setAttribute('aria-hidden', false);
-      };
-    };
-
-    useEffect(onClose(detachDialog), [isOpen]);
-    useEffect(onClose(setFocus), [isOpen]);
     useEffect(onClose(afterClose), [isOpen]);
-    useEffect(onOpen(hideRootFromScreenReaders), [isOpen]);
     useEffect(onOpen(afterOpen), [isOpen]);
 
     const attachDialog = () => {
