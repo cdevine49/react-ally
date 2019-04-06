@@ -19,6 +19,7 @@ If you'd rather bring in react-ally through a script tag, you can find UMD build
 ### Accordion
 
 ```jsx
+import React from 'react'
 import
 { AccordionGroup, Accordion, AccordionHeader, AccordionPanel }
 from 'react-ally';
@@ -69,6 +70,7 @@ const MyAccordion = () => (
 ### Breadcrumb
 
 ```jsx
+import React from 'react'
 import { Breadcrumb, BreadcrumbLink } from 'react-ally';
 
 const MyBreadcrumb = () => (
@@ -102,9 +104,137 @@ const MyBreadcrumb = () => (
 );
 ```
 
+### Dialog
+
+```jsx
+import React, { useRef, useState } from 'react';
+import { Dialog, DialogDescription, DialogLabel } from 'react-ally';
+
+const MyDialog = () => {
+  const firstTabbableElementRef = useRef(null);
+  const lastTabbableElementRef = useRef(null);
+  const wrapperRef = useRef(null);
+  const [isOpen, setIsOpen] = useState();
+
+  return (
+    <>
+      <button onClick={() => setIsOpen(true)}>Open Dialog</button>
+      <Dialog
+        ref={wrapperRef}
+        /*
+          Function that closes the dialog on overlayClick or escape keydown
+        */
+        close={() => setIsOpen(false)}
+        /*
+          Boolean that determines if clicking the overlay closes the dialog.
+        */
+        closeOnOverlayClick={true}
+        /*
+          Ref belonging to the first tabbable element in the dialog.
+          Used to trap focus.
+          Will recieve initial focus unless the initialFocusElementRef prop is passed.
+        */
+        firstTabbableElementRef={firstTabbableElementRef}
+        /*
+          String that acts as the dialog's id as well as creating ids and aria
+          attributes for the dialog's optional label and description
+        */
+        id="add-dialog"
+        /*
+          Ref that gets initial focus on mount.
+          Defaults to firstTabbableElementRef.
+        */
+        initialFocusElementRef={firstTabbableElementRef}
+        /*
+          Boolean that determines if the dialog is open
+        */
+        isOpen={isOpen}
+        /*
+          Ref belonging to the last tabbable element in the dialog.
+          Used to trap focus.
+        */
+        lastTabbableElementRef={lastTabbableElementRef}
+        /*
+          String determining the background-color of the overlay
+        */
+        overlayBackgroundColor="rgba(255,255,255,0.75)"
+        /*
+          Object spread out over the overlay div.  If a style prop is passed,
+          it will be respected, but overlayBackgroundColor will override
+          any backgroundColor style passed in here.
+        */
+        overlayProps={{}}
+        /*
+          Ref which will receive focus when the dialog closes.  Defaults to
+          the activeElement when the dialog was opened.  If there was no
+          activeElement when the dialog opened, it will cause an error.
+        */
+        returnFocus={{ current: document.activeElement }}
+      >
+        <DialogLabel>I am the header</DialogLabel>
+        <DialogDescription>I explain the dialog in more depth</DialogDescription>
+        <input ref={firstTabbableElementRef}>First tabbable element</button>
+        <a href="#">A link</button>
+        <button
+          ref={lastTabbableElementRef}
+          onClick={() => setIsOpen(false)}
+        >
+          Last tabbable element closes the dialog
+        </button>
+      </Dialog>
+    </>
+  );
+};
+```
+
+### FocusTrap
+
+```jsx
+import React, { useRef } from 'react';
+import { FocusTrap } from 'react-ally';
+
+const MyFocusTrap = () => {
+  const firstTabbableElementRef = useRef(null);
+  const lastTabbableElementRef = useRef(null);
+  const wrapperRef = useRef(null);
+
+  return (
+    <FocusTrap
+      /*
+        Ref belonging to the first tabbable element in the focus trap.
+        Used to trap focus.
+        Will recieve initial focus unless the initialFocusElementRef prop is passed.
+      */
+      firstTabbableElementRef={firstTabbableElementRef}
+      /*
+        Ref that gets initial focus on mount.
+        Defaults to firstTabbableElementRef.
+      */
+      initialTabbableElementRef={firstTabbableElementRef}
+      /*
+        Ref belonging to the last tabbable element in the dialog.
+        Used to trap focus.
+      */
+      lastTabbableElementRef={lastTabbableElementRef}
+      /*
+        Ref belonging to the top-level child element of the focus trap.
+      */
+      wrapperRef={wrapperRef}
+    >
+      <div ref={wrapperRef}>
+        <button ref={firstTabbableElementRef}>First</button>
+        <button>Middle</button>
+        <button ref={lastTabbableElementRef}>First</button>
+      </div>
+    </FocusTrap>
+  );
+};
+```
+
 ### Section / Heading
 
 ```jsx
+import React from 'react';
 import { Section, Heading } from 'react-ally';
 
 const MyApp = (
@@ -172,6 +302,7 @@ const MySpinButton = {
 ### Tabs
 
 ```jsx
+import React from 'react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from 'react-ally';
 
 const MyTabs = () => (
