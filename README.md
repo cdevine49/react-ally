@@ -241,7 +241,7 @@ const MyApp = (
   <>
     <Heading /*h1*/>Top Level</Heading>
     <Section>
-      <Heading /*h2*/>Second Level First Sibling</Heading> // <h1 />
+      <Heading /*h2*/>Second Level First Sibling</Heading>
       <Section>
         <Heading /*h3*/>Third Level</Heading>
       </Section>
