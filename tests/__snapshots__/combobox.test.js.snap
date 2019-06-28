@@ -1,0 +1,1194 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`automatic initial render 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value=""
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed down arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-1"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed down arrow 2`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-2"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed down arrow 3`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed enter 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed up arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-2"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed up arrow 2`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-1"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed up arrow 3`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox displayed up arrow 4`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-2"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox not displayed down arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value=""
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic listbox not displayed up arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value=""
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic value 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`automatic value 2`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-30"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="le"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-30"
+      >
+        Leek
+      </li>
+      <li
+        id="healthy-foods-result-item-31"
+      >
+        Lemon
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual initial render 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value=""
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed down arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed down arrow 2`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-1"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed down arrow 3`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-2"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed down arrow 4`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed up arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-2"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed up arrow 2`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-1"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed up arrow 3`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-0"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox displayed up arrow 4`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-activedescendant="healthy-foods-result-item-2"
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox not displayed down arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value=""
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual listbox not displayed up arrow 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="false"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value=""
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+      style="display: none;"
+    />
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual value 1`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="A"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-0"
+      >
+        Apple
+      </li>
+      <li
+        id="healthy-foods-result-item-1"
+      >
+        Artichoke
+      </li>
+      <li
+        id="healthy-foods-result-item-2"
+      >
+        Asparagus
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;
+
+exports[`manual value 2`] = `
+<DocumentFragment>
+  <label
+    for="healthy-foods-input"
+    id="healthy-foods-label"
+  >
+    Fruits and Veggies
+  </label>
+  <div>
+    <div
+      aria-expanded="true"
+      aria-haspopup="listbox"
+      aria-owns="healthy-foods-listbox"
+      id="healthy-foods-combobox"
+      role="combobox"
+    >
+      <input
+        aria-autocomplete="list"
+        aria-controls="healthy-foods-listbox"
+        id="healthy-foods-input"
+        type="text"
+        value="le"
+      />
+    </div>
+    <ul
+      aria-labelledby="healthy-foods-label"
+      id="healthy-foods-listbox"
+      role="listbox"
+    >
+      <li
+        id="healthy-foods-result-item-30"
+      >
+        Leek
+      </li>
+      <li
+        id="healthy-foods-result-item-31"
+      >
+        Lemon
+      </li>
+    </ul>
+  </div>
+</DocumentFragment>
+`;

@@ -224,7 +224,7 @@ const MyFocusTrap = () => {
       <div ref={wrapperRef}>
         <button ref={firstTabbableElementRef}>First</button>
         <button>Middle</button>
-        <button ref={lastTabbableElementRef}>First</button>
+        <button ref={lastTabbableElementRef}>Last</button>
       </div>
     </FocusTrap>
   );

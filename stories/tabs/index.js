@@ -1,7 +1,6 @@
 import React from 'react';
 import { storiesOf } from '@storybook/react';
 import { Tabs, TabList, Tab, TabPanels, TabPanel } from '../../src/tabs';
-import { checkA11y } from '@storybook/addon-a11y';
 
 const Example = ({ manual }) => (
   <div>
@@ -39,6 +38,5 @@ const Example = ({ manual }) => (
 );
 
 storiesOf('Tabs', module)
-  // .addDecorator(checkA11y)
   .add('Automatic Activation', () => <Example />)
   .add('Manual Activation', () => <Example manual />);

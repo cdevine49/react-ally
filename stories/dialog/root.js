@@ -5,7 +5,7 @@ import { Add } from './add';
 import { Verify } from './verify';
 
 export const Root = () => {
-  const { open, ...dialogHelpers } = DialogHelpers(true);
+  const { open, ...dialogHelpers } = DialogHelpers();
   const returnFocus = useRef(null);
   return (
     <div>

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Header, Icon, Panel, Wrapper } from './styles';
-import { boolean, number, select } from '@storybook/addon-knobs';
+import { boolean } from '@storybook/addon-knobs';
 import { AccordionGroup, Accordion } from '../../src/accordion';
 
 export const Component = ({ headingLevel, initialOpen }) => (
@@ -11,7 +11,7 @@ export const Component = ({ headingLevel, initialOpen }) => (
       initialOpen={initialOpen}
       id="my-accordion"
     >
-      <Accordion>
+      <Accordion className="hello">
         <Header>
           Personal Information
           <Icon />
@@ -20,13 +20,13 @@ export const Component = ({ headingLevel, initialOpen }) => (
           <fieldset>
             <p>
               <label htmlFor="cufc1">
-                Name<span>*</span>:
+                Name<span aria-hidden>*</span>:
               </label>
               <input type="text" value="" name="Name" id="cufc1" aria-required={true} readOnly />
             </p>
             <p>
               <label htmlFor="cufc2">
-                Email<span>*</span>:
+                Email<span aria-hidden>*</span>:
               </label>
               <input type="text" value="" name="Email" id="cufc2" aria-required={true} readOnly />
             </p>

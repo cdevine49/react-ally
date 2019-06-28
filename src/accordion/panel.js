@@ -20,6 +20,7 @@ export const Panel = forwardRef(
       aria-hidden={!isOpen}
       aria-labelledby={buttonId(accordionId)}
       id={contentId(accordionId)}
+      role="region"
     >
       {isOpen && props.children}
     </div>

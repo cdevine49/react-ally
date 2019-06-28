@@ -2,7 +2,6 @@ import React from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
 import { Breadcrumb, BreadcrumbLink } from '../src/breadcrumb';
-import { checkA11y } from '@storybook/addon-a11y';
 
 const Wrapper = styled(Breadcrumb)`
   ol {
@@ -24,7 +23,6 @@ const Wrapper = styled(Breadcrumb)`
 `;
 
 const stories = storiesOf('Breadcrumb', module);
-stories.addDecorator(checkA11y);
 stories.add('Current page is link', () => (
   <div>
     <Wrapper>
