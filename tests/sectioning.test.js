@@ -41,6 +41,24 @@ test('Sibling Sections', () => {
 `);
 });
 
+test('section with show', () => {
+  const { asFragment } = render(
+    <Section show>
+      <Heading>Second Level</Heading>
+    </Section>
+  );
+
+  expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <section>
+    <h2>
+      Second Level
+    </h2>
+  </section>
+</DocumentFragment>
+`);
+});
+
 test('Nested Sections', () => {
   const Component = () => (
     <Section>

@@ -250,12 +250,17 @@ const MyApp = (
       <Heading /*h2*/>Second Level Second Sibling</Heading>
     </Section>
     <Section
-      /*
+    /*
       Number that overrides the the heading level for this section and
       its children.  Main use case is if adding <Section /> components
       piecemeal to an existing app.
     */
       levelOverride={4}
+
+    /*
+      Boolean that puts an html section element in the dom when true
+    */
+      show={false}
     >
       <Heading /*h4*/>Fourth Level By Override</Heading>
     </Section>
