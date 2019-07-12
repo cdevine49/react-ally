@@ -59,7 +59,3 @@ export const Carousel = ({
     </div>
   );
 };
-
-export const Slide = ({ alt, count, index, src, ...props }) => (
-  <div aria-label={`${index} of ${count}`} {...props} aria-roledescription="slide" role="group" />
-);
