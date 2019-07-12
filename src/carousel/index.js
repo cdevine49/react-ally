@@ -1,3 +1,4 @@
+import { Carousel } from './carousel';
 import { Slide } from './slide';
 
-export { Slide };
+export { Carousel, Slide };

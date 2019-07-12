@@ -1,3 +1,23 @@
+export const requiredIfMissing = potentiallyMissingProps => {
+  return (props, propName, componentName) => {
+    if (!Array.isArray(potentiallyMissingProps)) {
+      potentiallyMissingProps = [potentiallyMissingProps];
+    }
+
+    if (
+      potentiallyMissingProps.some(
+        potentiallyMissingPropName => !!props[potentiallyMissingPropName]
+      )
+    ) {
+      return null;
+    }
+
+    return new Error(
+      `The prop \`${propName}\` is marked as required in \`${componentName}\`, but its value is \`undefined\`.`
+    );
+  };
+};
+
 export const useSpecializedRole = (propName, componentName) =>
   `\`${componentName}\` doesn't accept a \`${propName}\` prop, if you need to use a specialized role, please use the \`Alert\`, \`Log\`, \`Status\`, \`Progressbar\`, \`Marguee\`, or \`Timer\` component.`;
 export const invalidAriaRelevant = (value, propName, componentName) =>
