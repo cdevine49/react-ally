@@ -41,14 +41,11 @@ export const SingleCollapsable = ({}) => {
   const [selected, setSelected] = useState(TRANSURANIUM_ELEMENTS[0]);
   const [open, setOpen] = useState(false);
 
-  useEffect(
-    () => {
-      if (open) {
-        listRef.current.focus();
-      }
-    },
-    [open]
-  );
+  useEffect(() => {
+    if (open) {
+      listRef.current.focus();
+    }
+  }, [open]);
 
   return (
     <Wrapper>

@@ -10,6 +10,8 @@ export const needsAriaLabelOrTitle = (ariaLabel, propName, componentName) =>
   `Invalid value \`${ariaLabel}\` for \`${propName}\` supplied to \`${componentName}\`.  ${componentName} must have either an AlertDialogLabel child or a valid aria-label`;
 
 // Dialog
-export const needsDialogLabel = componentName => `\`${componentName}\` expects a \`DialogLabel\` child`;
+export const needsDialogLabel = componentName =>
+  `\`${componentName}\` expects a \`DialogLabel\` child`;
 // AlertDialog
-export const needsDialogDescription = componentName => `\`${componentName}\` expects a \`DialogDescription\` child`;
+export const needsDialogDescription = componentName =>
+  `\`${componentName}\` expects a \`DialogDescription\` child`;

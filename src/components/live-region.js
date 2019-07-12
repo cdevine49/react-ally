@@ -28,7 +28,15 @@ const _ensureUndefined = (props, propName, componentName) => {
 };
 
 export const LiveRegion = props => {
-  return <div aria-atomic={true} aria-live="polite" aria-relevant="additions text" {...props} role={undefined} />;
+  return (
+    <div
+      aria-atomic={true}
+      aria-live="polite"
+      aria-relevant="additions text"
+      {...props}
+      role={undefined}
+    />
+  );
 };
 
 LiveRegion.propTypes = {
@@ -39,7 +47,13 @@ LiveRegion.propTypes = {
 };
 
 export const Alert = props => (
-  <div aria-relevant="additions text" {...props} aria-atomic={true} aria-live="assertive" role="alert" />
+  <div
+    aria-relevant="additions text"
+    {...props}
+    aria-atomic={true}
+    aria-live="assertive"
+    role="alert"
+  />
 );
 
 Alert.propTypes = {
@@ -50,7 +64,13 @@ Alert.propTypes = {
 };
 
 export const Status = props => (
-  <div aria-relevant="additions text" {...props} aria-atomic={true} aria-live="polite" role="status" />
+  <div
+    aria-relevant="additions text"
+    {...props}
+    aria-atomic={true}
+    aria-live="polite"
+    role="status"
+  />
 );
 
 Status.propTypes = {
@@ -59,7 +79,9 @@ Status.propTypes = {
   'aria-relevant': _validateAriaRelevant,
   role: _ensureUndefined
 };
-export const Log = props => <div aria-atomic={false} aria-relevant="additions" {...props} aria-live="polite" role="log" />;
+export const Log = props => (
+  <div aria-atomic={false} aria-relevant="additions" {...props} aria-live="polite" role="log" />
+);
 
 Log.propTypes = {
   'aria-atomic': bool,
@@ -68,7 +90,9 @@ Log.propTypes = {
   role: _ensureUndefined
 };
 
-export const Progressbar = props => <div {...props} aria-valuemin={0} aria-valuemax={1} role="progressbar" />;
+export const Progressbar = props => (
+  <div {...props} aria-valuemin={0} aria-valuemax={1} role="progressbar" />
+);
 
 const _validateAriaValueNow = (props, propName, componentName) => {
   const avn = props[propName];
@@ -85,7 +109,13 @@ Progressbar.propTypes = {
 };
 
 export const Marquee = props => (
-  <div aria-atomic={false} aria-relevant="additions text" {...props} aria-live={'off'} role="marquee" />
+  <div
+    aria-atomic={false}
+    aria-relevant="additions text"
+    {...props}
+    aria-live={'off'}
+    role="marquee"
+  />
 );
 
 Marquee.propTypes = {
@@ -96,7 +126,13 @@ Marquee.propTypes = {
 };
 
 export const Timer = props => (
-  <div aria-atomic={false} aria-relevant="additions text" {...props} aria-live={'off'} role="timer" />
+  <div
+    aria-atomic={false}
+    aria-relevant="additions text"
+    {...props}
+    aria-live={'off'}
+    role="timer"
+  />
 );
 
 Timer.propTypes = {

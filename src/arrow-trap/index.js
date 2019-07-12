@@ -43,7 +43,7 @@ export const ArrowTrap = ({ children, toolbarItem = false }) => {
         React.cloneElement(child, {
           focused: index === focusIndex,
           setFocusOnKeyDown: e => {
-            onKeyDown(e, index)
+            onKeyDown(e, index);
           }
         })
       )}

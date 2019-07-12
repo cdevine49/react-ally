@@ -65,58 +65,49 @@ export const Listbox = React.forwardRef(
       }
     };
 
-    useEffect(
-      () => {
-        if (ctrlShift && multiselectable) {
-          selectBetween(_findIndex(prevActiveValueRef.current), _findIndex(activeValue));
-        } else if (selecting) {
-          setSelecting(false);
-          handleChange(activeValue);
-        }
-      },
-      [activeValue]
-    );
+    useEffect(() => {
+      if (ctrlShift && multiselectable) {
+        selectBetween(_findIndex(prevActiveValueRef.current), _findIndex(activeValue));
+      } else if (selecting) {
+        setSelecting(false);
+        handleChange(activeValue);
+      }
+    }, [activeValue]);
 
-    useEffect(
-      () => {
-        prevActiveValueRef.current = activeValue;
-      },
-      [activeValue]
-    );
+    useEffect(() => {
+      prevActiveValueRef.current = activeValue;
+    }, [activeValue]);
 
-    useEffect(
-      () => {
-        if (typeAhead) {
-          const matchesTypeAhead = child =>
-            child.props.children.slice(0, typeAhead.length).toLowerCase() === typeAhead;
+    useEffect(() => {
+      if (typeAhead) {
+        const matchesTypeAhead = child =>
+          child.props.children.slice(0, typeAhead.length).toLowerCase() === typeAhead;
 
-          const activeIndex = _findIndex(activeValue);
-          const child = children
-            .slice(activeIndex)
-            .concat(children.slice(0, activeIndex))
-            .find(child => matchesTypeAhead(child));
+        const activeIndex = _findIndex(activeValue);
+        const child = children
+          .slice(activeIndex)
+          .concat(children.slice(0, activeIndex))
+          .find(child => matchesTypeAhead(child));
 
-          if (child) {
-            if (value !== child.props.value) {
-              if (autoSelect) {
-                handleChange(child.props.value);
-              } else {
-                setActiveValue(child.props.value);
-              }
+        if (child) {
+          if (value !== child.props.value) {
+            if (autoSelect) {
+              handleChange(child.props.value);
+            } else {
+              setActiveValue(child.props.value);
             }
           }
-
-          const resetTypeAhead = setTimeout(() => {
-            setTypeAhead('');
-          }, 500);
-
-          return () => {
-            clearTimeout(resetTypeAhead);
-          };
         }
-      },
-      [typeAhead]
-    );
+
+        const resetTypeAhead = setTimeout(() => {
+          setTypeAhead('');
+        }, 500);
+
+        return () => {
+          clearTimeout(resetTypeAhead);
+        };
+      }
+    }, [typeAhead]);
 
     const handleListFocus = e => {
       if (autoSelect && !value.length) {
@@ -305,14 +296,11 @@ export const ListboxOption = ({
 
   const focused = focusValue === value;
 
-  useEffect(
-    () => {
-      if (focused) {
-        ensureVisible();
-      }
-    },
-    [focused]
-  );
+  useEffect(() => {
+    if (focused) {
+      ensureVisible();
+    }
+  }, [focused]);
 
   const className = (passedClassName + (focused ? 'focused' : '')).trim();
   return (

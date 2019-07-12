@@ -29,7 +29,14 @@ describe('Live Region', () => {
 
   test(`logs errors for invalid props`, () => {
     console.error = jest.fn();
-    const component = <LiveRegion aria-atomic={1} aria-live="loud" aria-relevant="additions bad text" role="alert" />;
+    const component = (
+      <LiveRegion
+        aria-atomic={1}
+        aria-live="loud"
+        aria-relevant="additions bad text"
+        role="alert"
+      />
+    );
     const { asFragment } = render(component);
     expect(asFragment()).toMatchSnapshot();
 
@@ -37,7 +44,11 @@ describe('Live Region', () => {
     in LiveRegion`;
     const ariaLiveError = `Warning: Failed prop type: Invalid prop \`aria-live\` of value \`loud\` supplied to \`LiveRegion\`, expected one of ["off","polite","assertive"].
     in LiveRegion`;
-    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant('bad', 'aria-relevant', 'LiveRegion')}
+    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant(
+      'bad',
+      'aria-relevant',
+      'LiveRegion'
+    )}
     in LiveRegion`;
     const roleError = `Warning: Failed prop type: ${useSpecializedRole('role', 'LiveRegion')}
     in LiveRegion`;
@@ -96,7 +107,11 @@ describe('Alert', () => {
 
     render(<Alert aria-relevant="additions bad text" />);
 
-    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant('bad', 'aria-relevant', 'Alert')}
+    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant(
+      'bad',
+      'aria-relevant',
+      'Alert'
+    )}
     in Alert`;
 
     expect(console.error).toHaveBeenCalledWith(ariaRelevantError);
@@ -150,7 +165,11 @@ describe('Status', () => {
 
     render(<Status aria-relevant="additions bad text" />);
 
-    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant('bad', 'aria-relevant', 'Status')}
+    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant(
+      'bad',
+      'aria-relevant',
+      'Status'
+    )}
     in Status`;
 
     expect(console.error).toHaveBeenCalledWith(ariaRelevantError);
@@ -204,7 +223,11 @@ describe('Log', () => {
     const ariaAtomicError = `Warning: Failed prop type: Invalid prop \`aria-atomic\` of type \`number\` supplied to \`Log\`, expected \`boolean\`.
     in Log`;
 
-    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant('bad', 'aria-relevant', 'Log')}
+    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant(
+      'bad',
+      'aria-relevant',
+      'Log'
+    )}
     in Log`;
 
     expect(console.error).toHaveBeenCalledWith(ariaAtomicError);
@@ -229,9 +252,15 @@ describe('Progressbar', () => {
     const { asFragment } = render(component);
     expect(asFragment()).toMatchSnapshot();
 
-    const ariaValueMaxError = `Warning: Failed prop type: ${blacklisted('aria-valuemax', 'Progressbar')}
+    const ariaValueMaxError = `Warning: Failed prop type: ${blacklisted(
+      'aria-valuemax',
+      'Progressbar'
+    )}
     in Progressbar`;
-    const ariaValueMinError = `Warning: Failed prop type: ${blacklisted('aria-valuemin', 'Progressbar')}
+    const ariaValueMinError = `Warning: Failed prop type: ${blacklisted(
+      'aria-valuemin',
+      'Progressbar'
+    )}
     in Progressbar`;
     const roleError = `Warning: Failed prop type: ${blacklisted('role', 'Progressbar')}
     in Progressbar`;
@@ -252,9 +281,17 @@ describe('Progressbar', () => {
     render(<Progressbar aria-valuenow={1} />);
     render(<Progressbar aria-valuenow={0.5} />);
 
-    const ariaValueNowLowError = `Warning: Failed prop type: ${zeroToOne('-0.001', 'aria-valuenow', 'Progressbar')}
+    const ariaValueNowLowError = `Warning: Failed prop type: ${zeroToOne(
+      '-0.001',
+      'aria-valuenow',
+      'Progressbar'
+    )}
     in Progressbar`;
-    const ariaValueNowHighError = `Warning: Failed prop type: ${zeroToOne('1.001', 'aria-valuenow', 'Progressbar')}
+    const ariaValueNowHighError = `Warning: Failed prop type: ${zeroToOne(
+      '1.001',
+      'aria-valuenow',
+      'Progressbar'
+    )}
     in Progressbar`;
 
     expect(console.error).toHaveBeenCalledWith(ariaValueNowLowError);
@@ -319,7 +356,11 @@ describe('Marquee', () => {
     const ariaAtomicError = `Warning: Failed prop type: Invalid prop \`aria-atomic\` of type \`number\` supplied to \`Marquee\`, expected \`boolean\`.
     in Marquee`;
 
-    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant('bad', 'aria-relevant', 'Marquee')}
+    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant(
+      'bad',
+      'aria-relevant',
+      'Marquee'
+    )}
     in Marquee`;
 
     expect(console.error).toHaveBeenCalledWith(ariaAtomicError);
@@ -374,7 +415,11 @@ describe('Timer', () => {
     const ariaAtomicError = `Warning: Failed prop type: Invalid prop \`aria-atomic\` of type \`number\` supplied to \`Timer\`, expected \`boolean\`.
     in Timer`;
 
-    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant('bad', 'aria-relevant', 'Timer')}
+    const ariaRelevantError = `Warning: Failed prop type: ${invalidAriaRelevant(
+      'bad',
+      'aria-relevant',
+      'Timer'
+    )}
     in Timer`;
 
     expect(console.error).toHaveBeenCalledWith(ariaAtomicError);
