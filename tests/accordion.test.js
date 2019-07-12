@@ -46,6 +46,7 @@ const _default = (firstButtonDisabled = false) => `
       aria-hidden="false"
       aria-labelledby="my-accordion-0th-button"
       id="my-accordion-0th-content"
+      role="region"
     >
       Content 1
     </div>
@@ -63,6 +64,7 @@ const _default = (firstButtonDisabled = false) => `
       aria-hidden="true"
       aria-labelledby="my-accordion-1th-button"
       id="my-accordion-1th-content"
+      role="region"
     />
     <h2>
       <button
@@ -78,6 +80,7 @@ const _default = (firstButtonDisabled = false) => `
       aria-hidden="true"
       aria-labelledby="my-accordion-2th-button"
       id="my-accordion-2th-content"
+      role="region"
     />
   </div>
 </DocumentFragment>
@@ -107,6 +110,7 @@ const allclosed = `
       aria-hidden="true"
       aria-labelledby="my-accordion-0th-button"
       id="my-accordion-0th-content"
+      role="region"
     />
     <h2>
       <button
@@ -122,6 +126,7 @@ const allclosed = `
       aria-hidden="true"
       aria-labelledby="my-accordion-1th-button"
       id="my-accordion-1th-content"
+      role="region"
     />
     <h2>
       <button
@@ -137,6 +142,7 @@ const allclosed = `
       aria-hidden="true"
       aria-labelledby="my-accordion-2th-button"
       id="my-accordion-2th-content"
+      role="region"
     />
   </div>
 </DocumentFragment>
@@ -161,6 +167,7 @@ const allOpen = `
       aria-hidden="false"
       aria-labelledby="my-accordion-0th-button"
       id="my-accordion-0th-content"
+      role="region"
     >
       Content 1
     </div>
@@ -178,6 +185,7 @@ const allOpen = `
       aria-hidden="false"
       aria-labelledby="my-accordion-1th-button"
       id="my-accordion-1th-content"
+      role="region"
     >
       Content 2
     </div>
@@ -195,6 +203,7 @@ const allOpen = `
       aria-hidden="false"
       aria-labelledby="my-accordion-2th-button"
       id="my-accordion-2th-content"
+      role="region"
     >
       Content 3
     </div>
@@ -295,6 +304,7 @@ describe('multi false', () => {
       aria-hidden="true"
       aria-labelledby="my-accordion-0th-button"
       id="my-accordion-0th-content"
+      role="region"
     />
     <h2>
       <button
@@ -310,6 +320,7 @@ describe('multi false', () => {
       aria-hidden="false"
       aria-labelledby="my-accordion-1th-button"
       id="my-accordion-1th-content"
+      role="region"
     >
       Content 2
     </div>
@@ -327,6 +338,7 @@ describe('multi false', () => {
       aria-hidden="true"
       aria-labelledby="my-accordion-2th-button"
       id="my-accordion-2th-content"
+      role="region"
     />
   </div>
 </DocumentFragment>

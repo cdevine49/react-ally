@@ -1,9 +1,9 @@
 import React from 'react';
 
-export const Accordion = ({ children, accordionId, isOpen, multi, onClickHeader }) => (
+export const Accordion = ({ children, accordionId, focused, isOpen, multi, onClickHeader, setFocusOnKeyDown }) => (
   <>
     {React.Children.map(children, child =>
-      React.cloneElement(child, { accordionId, isOpen, multi, onClickHeader })
+      React.cloneElement(child, { accordionId, isOpen, focused, multi, onClickHeader, setFocusOnKeyDown })
     )}
   </>
 );

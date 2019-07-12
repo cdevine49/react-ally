@@ -42,7 +42,9 @@ export const ArrowTrap = ({ children, toolbarItem = false }) => {
       {React.Children.map(children, (child, index) =>
         React.cloneElement(child, {
           focused: index === focusIndex,
-          setFocusOnKeyDown: e => onKeyDown(e, index)
+          setFocusOnKeyDown: e => {
+            onKeyDown(e, index)
+          }
         })
       )}
     </>
