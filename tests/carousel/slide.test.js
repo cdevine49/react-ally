@@ -18,7 +18,7 @@ test('default', () => {
   const { asFragment } = render(<Slide index={2} count={5} />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
-  <div
+  <li
     aria-label="2 of 5"
     aria-roledescription="slide"
     role="group"
@@ -31,7 +31,7 @@ test('aria-label', () => {
   const { asFragment } = render(<Slide aria-label="Hello World" index={2} count={5} />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
-  <div
+  <li
     aria-label="Hello World"
     aria-roledescription="slide"
     role="group"
@@ -44,11 +44,32 @@ test('aria-labelledby', () => {
   const { asFragment } = render(<Slide aria-labelledby="helloworld" index={2} count={5} />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
-  <div
+  <li
     aria-labelledby="helloworld"
     aria-roledescription="slide"
     role="group"
   />
+</DocumentFragment>
+`);
+});
+
+test('children', () => {
+  const { asFragment } = render(
+    <Slide index={2} count={5}>
+      <img src="whatever" />
+    </Slide>
+  );
+  expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <li
+    aria-label="2 of 5"
+    aria-roledescription="slide"
+    role="group"
+  >
+    <img
+      src="whatever"
+    />
+  </li>
 </DocumentFragment>
 `);
 });

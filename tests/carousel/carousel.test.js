@@ -22,3 +22,18 @@ test('incorrect prop types', () => {
   expect(console.error).toHaveBeenCalledWith(message('role'));
   expect(console.error).toHaveBeenCalledTimes(1);
 });
+
+test('children', () => {
+  const { asFragment } = render(
+    <Carousel index={1} count={2}>
+      {/*  */}
+    </Carousel>
+  );
+  expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <div
+    aria-roledescription="carousel"
+  />
+</DocumentFragment>
+`);
+});
