@@ -1,23 +1,28 @@
-import React, { createContext } from 'react';
-import { cleanup, render } from 'react-testing-library';
-import { NextSlideControl, PreviousSlideControl } from '../../es/react-ally';
+import React, { useState } from 'react';
+import { cleanup, render, fireEvent } from 'react-testing-library';
+import { NextSlideControl, PreviousSlideControl } from '../../src/carousel/';
+import * as context from '../../src/carousel/context';
 
 afterEach(cleanup);
-
-let realUseContext, mockUseContext;
-beforeEach(() => {
-  realUseContext = React.useContext;
-  mockUseContext = React.useContext = jest.fn();
-});
-
-afterEach(() => {
-  React.useContext = realUseContext;
-});
 
 const components = {
   NextSlideControl,
   PreviousSlideControl
 };
+
+const text = currentIndex => `Current Index: ${currentIndex}`;
+const slide = index => `
+<DocumentFragment>
+  <button>
+    ${text(index)}
+  </button>
+</DocumentFragment>
+`;
+
+const setNumberOfSlides = slides_count =>
+  jest.spyOn(context, 'useCarouselContext').mockImplementation(() => ({
+    slides_count
+  }));
 
 const MissingRequiredPropsText = ComponentName => {
   test('missing required props', () => {
@@ -31,15 +36,54 @@ const MissingRequiredPropsText = ComponentName => {
   });
 };
 
+const setupRender = Component => {
+  const Wrapper = () => {
+    const [currentIndex, setCurrentIndex] = useState(0);
+    return <Component setCurrentIndex={setCurrentIndex}>{text(currentIndex)}</Component>;
+  };
+  return render(<Wrapper />);
+};
+
+const OneSlide = Component => {
+  test('clicking when only one slide', () => {
+    setNumberOfSlides(1);
+    const { asFragment, getByText } = setupRender(Component);
+
+    [0, 0, 0].forEach(number => {
+      expect(asFragment()).toMatchInlineSnapshot(slide(number));
+      fireEvent.click(getByText(text(number)));
+    });
+  });
+};
+
 describe('Next Slide Control', () => {
   MissingRequiredPropsText('NextSlideControl');
+  OneSlide(NextSlideControl);
+  test('clicking when three slides', () => {
+    setNumberOfSlides(3);
+    const { asFragment, getByText } = setupRender(NextSlideControl);
 
-  test('one slide', () => {
-    mockUseContext.mockReturnValue(1);
-    const { getByText } = render(<NextSlideControl>Hello World</NextSlideControl>);
+    for (let i = 0; i < 2; i++) {
+      fireEvent.click(getByText(text(i)));
+      expect(asFragment()).toMatchInlineSnapshot(slide(i + 1));
+    }
+    fireEvent.click(getByText(text(2)));
+    expect(asFragment()).toMatchInlineSnapshot(slide(0));
   });
 });
 
 describe('Previous Slide Control', () => {
   MissingRequiredPropsText('PreviousSlideControl');
+  OneSlide(PreviousSlideControl);
+  test('clicking when three slides', () => {
+    setNumberOfSlides(3);
+    const { asFragment, getByText } = setupRender(PreviousSlideControl);
+
+    fireEvent.click(getByText(text(0)));
+    expect(asFragment()).toMatchInlineSnapshot(slide(2));
+    for (let i = 2; i < 0; i++) {
+      fireEvent.click(getByText(text(i)));
+      expect(asFragment()).toMatchInlineSnapshot(slide(i - 1));
+    }
+  });
 });

@@ -1,8 +1,17 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { cleanup, render, fireEvent } from 'react-testing-library';
-import { RotationControl } from '../../es/react-ally';
+import { RotationControl } from '../../src/carousel';
+import * as context from '../../src/carousel/context';
 
 afterEach(cleanup);
+
+const setRotating = rotating => {
+  jest.spyOn(context, 'useCarouselContext').mockImplementation(() => ({ rotating }));
+};
+
+beforeEach(() => {
+  setRotating(false);
+});
 
 test('missing required props', () => {
   console.error = jest.fn();
@@ -37,7 +46,8 @@ test('children', () => {
 const Component = () => {};
 
 test('rotating', () => {
-  const { asFragment, rerender } = render(<RotationControl rotating />);
+  setRotating(true);
+  const { asFragment, rerender } = render(<RotationControl />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
@@ -45,7 +55,9 @@ test('rotating', () => {
   />
 </DocumentFragment>
 `);
-  rerender(<RotationControl rotating={false} />);
+
+  setRotating(false);
+  rerender(<RotationControl />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
@@ -77,9 +89,10 @@ test('addable props', () => {
 });
 
 test('non-addable props', () => {
+  setRotating(true);
   const onClick = jest.fn();
   const { asFragment, getByText } = render(
-    <RotationControl aria-pressed={false} rotating onClick={onClick} setRotating={() => {}}>
+    <RotationControl aria-pressed={false} onClick={onClick} setRotating={() => {}}>
       Hello World
     </RotationControl>
   );

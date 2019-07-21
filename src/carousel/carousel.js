@@ -1,12 +1,15 @@
 import React from 'react';
-import { oneOf, string } from 'prop-types';
+import { oneOf } from 'prop-types';
 import { requiredIfMissing } from '../errors';
+import { CarouselContext } from './context';
 
-export const Carousel = ({ children, role }) => {
+export const Carousel = ({ children, role, rotating, setRotating }) => {
   return (
-    <div aria-roledescription="carousel" role={role}>
-      {children}
-    </div>
+    <CarouselContext.Provider value={{ rotating, setRotating }}>
+      <div aria-roledescription="carousel" role={role}>
+        {children}
+      </div>
+    </CarouselContext.Provider>
   );
 };
 

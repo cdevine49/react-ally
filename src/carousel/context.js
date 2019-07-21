@@ -1,3 +1,5 @@
-import { createContext } from 'react';
+import { createContext, useContext } from 'react';
 
-export const SlidesCountContext = createContext(1);
+export const useCarouselContext = () => useContext(CarouselContext);
+
+export const CarouselContext = createContext({});

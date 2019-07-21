@@ -104,6 +104,23 @@ const MyBreadcrumb = () => (
 );
 ```
 
+### Carousel
+
+Requirements
+
+- [x] Container element has role region or group
+- [x] Container has aria-roledescription "carousel"
+- [x] Container must have either aria-label or aria-labelledby NOTE: component does not check that aria-labelledby refers to valid labelling element
+- [x] Controls are implemented with the button pattern
+- [x] Each slide has role "group" and aria-roledescription "slide"
+- [x] Each slide has an accessible name
+  - [x] aria-labelledby or aria-label
+  - [x] If no label is available, number and set size used as alternative, e.g., "3 of 10"
+- [x] Slides containing element has aria-aromic "false" and aria-live "off" if automatically rotating or "polite" if not automatically rotating
+
+```jsx
+```
+
 ### Dialog
 
 ```jsx
@@ -250,14 +267,13 @@ const MyApp = (
       <Heading /*h2*/>Second Level Second Sibling</Heading>
     </Section>
     <Section
-    /*
+      /*
       Number that overrides the the heading level for this section and
       its children.  Main use case is if adding <Section /> components
       piecemeal to an existing app.
     */
       levelOverride={4}
-
-    /*
+      /*
       Boolean that puts an html section element in the dom when true
     */
       show={false}
