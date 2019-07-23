@@ -5,12 +5,12 @@ import * as context from '../../src/carousel/context';
 
 afterEach(cleanup);
 
-const setRotating = rotating => {
-  jest.spyOn(context, 'useCarouselContext').mockImplementation(() => ({ rotating }));
+const setContext = ctx => {
+  jest.spyOn(context, 'useCarouselContext').mockImplementation(() => ctx);
 };
 
 beforeEach(() => {
-  setRotating(false);
+  setContext({ rotating: false });
 });
 
 test('missing required props', () => {
@@ -27,7 +27,9 @@ test('default', () => {
   const { asFragment } = render(<RotationControl />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
-  <button />
+  <button
+    aria-pressed="false"
+  />
 </DocumentFragment>
 `);
 });
@@ -36,17 +38,17 @@ test('children', () => {
   const { asFragment } = render(<RotationControl>Hello World</RotationControl>);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
-  <button>
+  <button
+    aria-pressed="false"
+  >
     Hello World
   </button>
 </DocumentFragment>
 `);
 });
 
-const Component = () => {};
-
 test('rotating', () => {
-  setRotating(true);
+  setContext({ rotating: true });
   const { asFragment, rerender } = render(<RotationControl />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
@@ -56,7 +58,7 @@ test('rotating', () => {
 </DocumentFragment>
 `);
 
-  setRotating(false);
+  setContext({ rotating: false });
   rerender(<RotationControl />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
@@ -69,11 +71,15 @@ test('rotating', () => {
 
 test('setRotating', () => {
   const setRotating = jest.fn();
-  const { getByText } = render(
-    <RotationControl setRotating={setRotating}>Hello World</RotationControl>
-  );
+  setContext({ rotating: false, setRotating });
+  const { asFragment, getByText } = render(<RotationControl>Hello World</RotationControl>);
+
   fireEvent.click(getByText('Hello World'));
   expect(setRotating).toHaveBeenCalledTimes(1);
+
+  setContext({ rotating: true, setRotating });
+  fireEvent.click(getByText('Hello World'));
+  expect(setRotating).toHaveBeenCalledTimes(2);
 });
 
 test('addable props', () => {
@@ -81,6 +87,7 @@ test('addable props', () => {
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
+    aria-pressed="false"
     class="goodbye-moon"
     id="hello-world"
   />
@@ -89,15 +96,17 @@ test('addable props', () => {
 });
 
 test('non-addable props', () => {
-  setRotating(true);
+  const setRotating = jest.fn();
+  setContext({ rotating: true, setRotating });
   const onClick = jest.fn();
   const { asFragment, getByText } = render(
-    <RotationControl aria-pressed={false} onClick={onClick} setRotating={() => {}}>
+    <RotationControl aria-pressed={false} onClick={onClick}>
       Hello World
     </RotationControl>
   );
   fireEvent.click(getByText('Hello World'));
   expect(onClick).not.toHaveBeenCalled();
+  expect(setRotating).toHaveBeenCalled();
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
