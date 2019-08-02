@@ -116,10 +116,9 @@ Requirements
 - [x] Each slide has an accessible name
   - [x] aria-labelledby or aria-label
   - [x] If no label is available, number and set size used as alternative, e.g., "3 of 10"
-- [x] Slides containing element has aria-aromic "false" and aria-live "off" if automatically rotating or "polite" if not automatically rotating
-
-```jsx
-```
+- [x] Slides containing element has aria-aromic "false" and aria-live set to:
+  - [x] "off" if automatically rotating
+  - [x] "polite" if not automatically rotating
 
 ### Dialog
 

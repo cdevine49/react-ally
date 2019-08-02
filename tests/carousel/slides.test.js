@@ -14,8 +14,46 @@ beforeEach(() => {
   setRotating(false);
 });
 
-test('default', () => {
-  const { asFragment } = render(<Slides />);
+describe('Aria-live', () => {
+  test('when rotating', () => {
+    setRotating(true);
+    const { asFragment } = render(<Slides />);
+    expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <ul
+    aria-atomic="false"
+    aria-live="off"
+  />
+</DocumentFragment>
+`);
+  });
+
+  test('when not rotating', () => {
+    setRotating(false);
+    const { asFragment } = render(<Slides />);
+    expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <ul
+    aria-atomic="false"
+    aria-live="polite"
+  />
+</DocumentFragment>
+`);
+  });
+});
+
+const failedOverrideMessage = (
+  prop,
+  expected
+) => `Warning: Failed prop type: \`Slides\` has a default \`${prop}\` prop of value \`${expected}\` that cannot be overridden.
+    in Slides`;
+
+test('overriding aria-atomic', () => {
+  console.error = jest.fn();
+  const { asFragment } = render(<Slides aria-atomic />);
+  expect(console.error).toHaveBeenCalledWith(failedOverrideMessage('aria-atomic', false));
+  expect(console.error).toHaveBeenCalledTimes(1);
+
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <ul
@@ -26,14 +64,19 @@ test('default', () => {
 `);
 });
 
-test('automatically rotating', () => {
-  setRotating(true);
-  const { asFragment } = render(<Slides />);
+test('overriding aria-live', () => {
+  console.error = jest.fn();
+  const { asFragment } = render(<Slides aria-live />);
+  expect(console.error).toHaveBeenCalledWith(
+    failedOverrideMessage('aria-live', 'off if rotating or polite if not rotating')
+  );
+  expect(console.error).toHaveBeenCalledTimes(1);
+
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <ul
     aria-atomic="false"
-    aria-live="off"
+    aria-live="polite"
   />
 </DocumentFragment>
 `);

@@ -6,6 +6,7 @@ export const Slide = ({ count, index, ...props }) => (
   <li
     aria-label={props['aria-labelledby'] ? undefined : `${index} of ${count}`}
     {...props}
+    aria-atomic="false"
     aria-roledescription="slide"
     role="group"
   />
