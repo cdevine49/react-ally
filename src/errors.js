@@ -1,3 +1,13 @@
+export const willBeIgnored = defaultValue => {
+  return (props, propName, componentName) => {
+    if (props[propName]) {
+      return new Error(
+        `\`${componentName}\` has a default \`${propName}\` prop of value \`${defaultValue}\` that cannot be overridden.`
+      );
+    }
+  };
+};
+
 export const requiredIfMissing = potentiallyMissingProps => {
   return (props, propName, componentName) => {
     if (!Array.isArray(potentiallyMissingProps)) {
