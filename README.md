@@ -247,6 +247,20 @@ const MyFocusTrap = () => {
 };
 ```
 
+###Menu
+
+####Menu Button
+
+Requirements
+
+- [] With focus on the button
+  - [] Enter: toggles the menu and places focus on the first menu item when toggling to open
+  - [] Space: toggles the menu and places focus on the first menu item when toggling to open
+  - [] Down Arrow: toggles the menu and places focus on the first menu item when toggling to open
+  - [] Up Arrow: toggles the menu and places focus on the last menu item when toggling to open
+
+
+
 ### Section / Heading
 
 ```jsx
