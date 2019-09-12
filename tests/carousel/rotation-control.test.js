@@ -1,152 +1,183 @@
 import React from 'react';
 import { cleanup, render, fireEvent } from 'react-testing-library';
-import { RotationControl } from '../../src/carousel';
-import * as context from '../../src/carousel/context';
+import { RotationControl as RotationControlWithoutRequiredProps } from '../../src/carousel';
+import { CarouselContext } from '../../src/carousel/context';
 
 afterEach(cleanup);
 
-const setContext = ctx => {
-  jest.spyOn(context, 'useCarouselContext').mockImplementation(() => ctx);
+const RotationControl = React.forwardRef((props, ref) => {
+  return (
+    <RotationControlWithoutRequiredProps
+      ref={ref}
+      aria-label={props.children ? undefined : 'Default Label'}
+      {...props}
+    />
+  );
+});
+const Wrapper = ({ initRotating = false, ...props }) => {
+  const [rotating, setRotating] = React.useState(initRotating);
+  return (
+    <CarouselContext.Provider value={{ rotating, setRotating }}>
+      <RotationControl {...props} />
+    </CarouselContext.Provider>
+  );
 };
 
-beforeEach(() => {
-  setContext({ rotating: false });
+test('children are required unless aria-label prop is present', () => {
+  console.error = jest.fn();
+
+  render(<RotationControlWithoutRequiredProps aria-label="blah" />);
+  expect(console.error).toHaveBeenCalledTimes(0);
+
+  render(<RotationControlWithoutRequiredProps>Blah</RotationControlWithoutRequiredProps>);
+  expect(console.error).toHaveBeenCalledTimes(0);
+
+  render(<RotationControlWithoutRequiredProps />);
+
+  expect(console.error).toHaveBeenCalledTimes(1);
+  expect(console.error).toHaveBeenCalledWith(
+    `Warning: Failed prop type: The prop \`children\` is marked as required in \`RotationControl\`, but its value is \`undefined\`.
+    in RotationControl`
+  );
 });
 
-describe('children', () => {
-  test('as a function', () => {
-    const Component = () => (
-      <RotationControl>{rotating => (rotating ? 'Stop' : 'Start')}</RotationControl>
-    );
-    setContext({ rotating: false });
-    const { asFragment, rerender } = render(<Component />);
-    expect(asFragment()).toMatchInlineSnapshot(`
-<DocumentFragment>
-  <button
-    aria-pressed="false"
-  >
-    Start
-  </button>
-</DocumentFragment>
-`);
+const amIRotating = bool => `Am I rotating? ${bool ? 'Yes!' : 'No!'}`;
 
-    setContext({ rotating: true });
-    rerender(<Component />);
-    expect(asFragment()).toMatchInlineSnapshot(`
+describe('When rotating', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = render(
+      <Wrapper initRotating aria-label={amIRotating}>
+        {amIRotating}
+      </Wrapper>
+    );
+  });
+
+  test('aria-label function, children function, and aria-pressed all receive true', () => {
+    expect(wrapper.asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
+    aria-label="Am I rotating? Yes!"
     aria-pressed="true"
   >
-    Stop
+    Am I rotating? Yes!
   </button>
 </DocumentFragment>
 `);
   });
 
-  test('not as a function', () => {
-    const { asFragment } = render(<RotationControl>Hello World</RotationControl>);
-    expect(asFragment()).toMatchInlineSnapshot(`
+  test('click event sets rotating to false', () => {
+    fireEvent.click(wrapper.getByText(amIRotating(true)));
+    expect(wrapper.asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
+    aria-label="Am I rotating? No!"
     aria-pressed="false"
   >
+    Am I rotating? No!
+  </button>
+</DocumentFragment>
+`);
+  });
+});
+
+describe('When not rotating', () => {
+  let wrapper;
+  beforeEach(() => {
+    wrapper = render(<Wrapper aria-label={amIRotating}>{amIRotating}</Wrapper>);
+  });
+
+  test('aria-label function, children function, and aria-pressed all receive false', () => {
+    expect(wrapper.asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <button
+    aria-label="Am I rotating? No!"
+    aria-pressed="false"
+  >
+    Am I rotating? No!
+  </button>
+</DocumentFragment>
+`);
+  });
+
+  test('click event sets rotating to true', () => {
+    fireEvent.click(wrapper.getByText(amIRotating(false)));
+    expect(wrapper.asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <button
+    aria-label="Am I rotating? Yes!"
+    aria-pressed="true"
+  >
+    Am I rotating? Yes!
+  </button>
+</DocumentFragment>
+`);
+  });
+});
+
+test('children render normally when not a function', () => {
+  const { asFragment } = render(
+    <RotationControl aria-label={undefined}>Hello World</RotationControl>
+  );
+  expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <button>
     Hello World
   </button>
 </DocumentFragment>
 `);
-  });
 });
 
-describe('aria-label', () => {
-  test('as a function', () => {
-    const Component = () => (
-      <RotationControl aria-label={rotating => (rotating ? 'Stop' : 'Start')} />
-    );
-    setContext({ rotating: false });
-    const { asFragment, rerender } = render(<Component />);
-    expect(asFragment()).toMatchInlineSnapshot(`
-<DocumentFragment>
-  <button
-    aria-label="Start"
-    aria-pressed="false"
-  />
-</DocumentFragment>
-`);
-
-    setContext({ rotating: true });
-    rerender(<Component />);
-    expect(asFragment()).toMatchInlineSnapshot(`
-<DocumentFragment>
-  <button
-    aria-label="Stop"
-    aria-pressed="true"
-  />
-</DocumentFragment>
-`);
-  });
-
-  test('not as a function', () => {
-    const { asFragment } = render(<RotationControl aria-label="Hello World" />);
-    expect(asFragment()).toMatchInlineSnapshot(`
+test('aria-label renders normally when not a function', () => {
+  const { asFragment } = render(<RotationControl aria-label="Hello World" />);
+  expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
     aria-label="Hello World"
-    aria-pressed="false"
-  />
-</DocumentFragment>
-`);
-  });
-});
-
-test('rotating', () => {
-  setContext({ rotating: true });
-  const { asFragment, rerender } = render(<RotationControl />);
-  expect(asFragment()).toMatchInlineSnapshot(`
-<DocumentFragment>
-  <button
-    aria-pressed="true"
-  />
-</DocumentFragment>
-`);
-
-  setContext({ rotating: false });
-  rerender(<RotationControl />);
-  expect(asFragment()).toMatchInlineSnapshot(`
-<DocumentFragment>
-  <button
-    aria-pressed="false"
   />
 </DocumentFragment>
 `);
 });
 
-test('setRotating', () => {
-  const setRotating = jest.fn();
-  setContext({ rotating: false, setRotating });
-  const { getByText } = render(<RotationControl>Hello World</RotationControl>);
-
-  fireEvent.click(getByText('Hello World'));
-  expect(setRotating).toHaveBeenCalledTimes(1);
-
-  setContext({ rotating: true, setRotating });
-  fireEvent.click(getByText('Hello World'));
-  expect(setRotating).toHaveBeenCalledTimes(2);
-});
-
-test('overriding onClick', () => {
+test('onClick cannot be overridden', () => {
   console.error = jest.fn();
-  render(<RotationControl onClick={() => {}} />);
+  const onClick = jest.fn();
+  const setRotating = jest.fn();
+  const testid = 'rc-testid';
+  const { getByTestId } = render(
+    <CarouselContext.Provider value={{ setRotating }}>
+      <RotationControl data-testid={testid} onClick={onClick} />
+    </CarouselContext.Provider>
+  );
   expect(console.error)
     .toHaveBeenCalledWith(`Warning: Failed prop type: \`RotationControl\` has a default \`onClick\` prop of value \`a function that toggles rotation\` that cannot be overridden.
-    in RotationControl`);
+    in RotationControl (created by ForwardRef)
+    in ForwardRef`);
+  expect(setRotating).not.toHaveBeenCalled();
+  fireEvent.click(getByTestId(testid));
+  expect(onClick).not.toHaveBeenCalled();
+  expect(setRotating).toHaveBeenCalledTimes(1);
 });
 
-test('addable props', () => {
+test('aria-pressed cannot be overridden', () => {
+  const { asFragment } = render(
+    <RotationControl aria-pressed={false}>Hello World</RotationControl>
+  );
+  expect(asFragment()).toMatchInlineSnapshot(`
+<DocumentFragment>
+  <button>
+    Hello World
+  </button>
+</DocumentFragment>
+`);
+});
+
+test('props other than "aria-pressed" and "onClick" can be added', () => {
   const { asFragment } = render(<RotationControl id="hello-world" className="goodbye-moon" />);
   expect(asFragment()).toMatchInlineSnapshot(`
 <DocumentFragment>
   <button
-    aria-pressed="false"
+    aria-label="Default Label"
     class="goodbye-moon"
     id="hello-world"
   />
@@ -154,25 +185,19 @@ test('addable props', () => {
 `);
 });
 
-test('non-addable props', () => {
-  const setRotating = jest.fn();
-  setContext({ rotating: true, setRotating });
-  const onClick = jest.fn();
-  const { asFragment, getByText } = render(
-    <RotationControl aria-pressed={false} onClick={onClick}>
-      Hello World
-    </RotationControl>
-  );
-  fireEvent.click(getByText('Hello World'));
-  expect(onClick).not.toHaveBeenCalled();
-  expect(setRotating).toHaveBeenCalled();
-  expect(asFragment()).toMatchInlineSnapshot(`
-<DocumentFragment>
-  <button
-    aria-pressed="true"
-  >
-    Hello World
-  </button>
-</DocumentFragment>
-`);
+test('can accept a ref', () => {
+  const func = jest.fn();
+  const testid = 'rc-testid';
+  const Component = () => {
+    const ref = React.useRef(null);
+    React.useEffect(() => {
+      func(ref.current);
+    });
+    return <RotationControl ref={ref} data-testid={testid} />;
+  };
+
+  const { getByTestId } = render(<Component />);
+  expect(func).toHaveBeenCalledTimes(1);
+  expect(func).not.toHaveBeenCalledWith(null);
+  expect(func).toHaveBeenCalledWith(getByTestId(testid));
 });

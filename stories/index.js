@@ -7,6 +7,7 @@ import './accordion';
 // import './combobox';
 import './arrow-trap';
 import './breadcrumb';
+import './carousel';
 import './dialog';
 import './focus-trap';
 import './sectioning';

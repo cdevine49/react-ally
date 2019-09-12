@@ -10,6 +10,9 @@ export const willBeIgnored = defaultValue => {
 
 export const requiredIfMissing = potentiallyMissingProps => {
   return (props, propName, componentName) => {
+    if (props[propName]) {
+      return null;
+    }
     if (!Array.isArray(potentiallyMissingProps)) {
       potentiallyMissingProps = [potentiallyMissingProps];
     }

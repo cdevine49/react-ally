@@ -1,19 +1,24 @@
 import React from 'react';
-import { oneOf } from 'prop-types';
-import { requiredIfMissing } from '../errors';
+import { bool, func, oneOf } from 'prop-types';
+import { requiredIfMissing, willBeIgnored } from '../errors';
 import { CarouselContext } from './context';
 
-export const Carousel = ({ children, role, rotating, setRotating }) => {
-  return (
-    <CarouselContext.Provider value={{ rotating, setRotating }}>
-      <div aria-roledescription="carousel" role={role}>
-        {children}
-      </div>
-    </CarouselContext.Provider>
-  );
-};
+export const Carousel = React.forwardRef(
+  ({ rotating = false, setRotating = () => {}, ...props }, ref) => {
+    return (
+      <CarouselContext.Provider value={{ rotating, setRotating }}>
+        <div ref={ref} {...props} aria-roledescription="carousel" />
+      </CarouselContext.Provider>
+    );
+  }
+);
 
 Carousel.propTypes = {
   'aria-label': requiredIfMissing('aria-labelledby'),
-  role: oneOf(['group, region']).isRequired
+  'aria-roledescription': willBeIgnored('carousel'),
+  role: oneOf(['group', 'region']).isRequired,
+  rotating: bool,
+  setRotating: func
 };
+
+Carousel.displayName = 'Carousel';
