@@ -1,10 +1,14 @@
 import styled from 'styled-components';
-import { AccordionHeader, AccordionPanel } from '../../src/accordion';
+import {
+  Header as UnstyledHeader,
+  Panel as UnstyledPanel,
+} from '../../src/accordion';
 
-export const Wrapper = styled.div`
+export const AccordionWrapper = styled.div`
   border: 1px solid hsl(0, 0%, 82%);
   border-radius: 0.3em;
   box-shadow: 0 1px 2px hsl(0, 0%, 82%);
+  width: 500px;
 
   & > * + * {
     border-top: 1px solid hsl(0, 0%, 82%);
@@ -17,7 +21,7 @@ export const Wrapper = styled.div`
   }
 `;
 
-export const Header = styled(AccordionHeader)`
+export const Header = styled(UnstyledHeader)`
   margin: 0;
   button {
     background: none;
@@ -27,7 +31,7 @@ export const Header = styled(AccordionHeader)`
     font-size: 1rem;
     font-weight: normal;
     margin: 0;
-    padding: 1em 1.5em;
+    padding: 1.2em 1.5em;
     position: relative;
     text-align: left;
     width: 100%;
@@ -59,7 +63,7 @@ export const Icon = styled.span`
   }
 `;
 
-export const Panel = styled(AccordionPanel)`
+export const Panel = styled(UnstyledPanel)`
   margin: 0;
   padding: 1em 1.5em;
 
@@ -83,5 +87,19 @@ export const Panel = styled(AccordionPanel)`
 
   &[aria-hidden='true'] {
     padding: 0;
+  }
+`;
+
+export const Props = styled.div`
+  display: flex;
+  flex-direction: column;
+  padding-left: 20px;
+
+  label {
+    margin-bottom: 15px;
+
+    input {
+      margin-left: 10px;
+    }
   }
 `;

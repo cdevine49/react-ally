@@ -1,183 +1,269 @@
 import React from 'react';
-import { cleanup, fireEvent, render } from 'react-testing-library';
-import { ArrowTrap } from '../src/arrow-trap';
-import { HOME, END, LEFT, RIGHT, UP, DOWN } from '../src/keys';
+import { render, screen } from '@testing-library/react';
+import user from '@testing-library/user-event';
+import { ArrowTrap, FocusContext } from '../src/arrow-trap';
 
-afterEach(cleanup);
-
-const FocusChild = ({ focused, testid, setFocusOnKeyDown }) => (
-  <button data-testid={testid} onKeyDown={setFocusOnKeyDown}>{`${!!focused}`}</button>
-);
-
-const CHILD_COUNT = 3;
-
-const Component = () => {
-  const children = [];
-  for (let i = 0; i < CHILD_COUNT; i++) {
-    children.push(<FocusChild key={i} testid={i} />);
-  }
-  return <ArrowTrap>{children}</ArrowTrap>;
+const Button = (props) => {
+  const ref = React.useRef(null);
+  const { onKeyDown, register } = React.useContext(FocusContext);
+  React.useEffect(() => {
+    register(ref.current);
+  }, [register]);
+  return <button ref={ref} {...props} onKeyDown={onKeyDown} />;
 };
 
-const button = (index, bool) => `<button
-    data-testid="${index}"
-  >
-    ${bool}
-  </button>`;
+test('If focus is on a registered element, {arrowleft} moves focus to the previous registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, second, last] = screen.getAllByRole('button');
+  last.focus();
 
-const snapshot = focusedIndex => `
-<DocumentFragment>
-  ${button(0, focusedIndex === 0)}
-  ${button(1, focusedIndex === 1)}
-  ${button(2, focusedIndex === 2)}
-</DocumentFragment>
-`;
-
-test('initial render', () => {
-  const { asFragment } = render(<Component />);
-  expect(asFragment()).toMatchInlineSnapshot(snapshot());
+  user.type(last, '{arrowleft}', { skipClick: true });
+  expect(second).toHaveFocus();
+  user.type(second, '{arrowleft}', { skipClick: true });
+  expect(first).toHaveFocus();
 });
 
-test('HOME', () => {
-  const { asFragment, getByTestId } = render(<Component />);
-  const firstButton = getByTestId('0');
-  fireEvent.keyDown(firstButton, {
-    key: 'HOME',
-    keyCode: HOME
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
+test('If focus is on the first registered element, {arrowleft} moves focus to the last registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, _, last] = screen.getAllByRole('button');
+  first.focus();
 
-  const secondButton = getByTestId('1');
-  fireEvent.keyDown(secondButton, {
-    key: 'HOME',
-    keyCode: HOME
-  });
-
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
-  const thirdButton = getByTestId('2');
-  fireEvent.keyDown(thirdButton, {
-    key: 'HOME',
-    keyCode: HOME
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
+  user.type(first, '{arrowleft}', { skipClick: true });
+  expect(last).toHaveFocus();
 });
 
-test('END', () => {
-  const { asFragment, getByTestId } = render(<Component />);
-  const firstButton = getByTestId('0');
-  fireEvent.keyDown(firstButton, {
-    key: 'END',
-    keyCode: END
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
+test('If horizontal arrows are disabled, {arrowleft} does not move focus', () => {
+  render(
+    <ArrowTrap allowHorizontal={false}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const second = screen.getByRole('button', { name: 'Second' });
+  second.focus();
 
-  const secondButton = getByTestId('1');
-  fireEvent.keyDown(secondButton, {
-    key: 'END',
-    keyCode: END
-  });
-
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
-  const thirdButton = getByTestId('2');
-  fireEvent.keyDown(thirdButton, {
-    key: 'END',
-    keyCode: END
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
+  user.type(second, '{arrowleft}', { skipClick: true });
+  expect(second).toHaveFocus();
 });
 
-test('LEFT', () => {
-  const { asFragment, getByTestId } = render(<Component />);
-  const firstButton = getByTestId('0');
-  fireEvent.keyDown(firstButton, {
-    key: 'LEFT',
-    keyCode: LEFT
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
+test('If focus is on a registered element, {arrowright} moves focus to the next registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, second, last] = screen.getAllByRole('button');
+  first.focus();
 
-  const secondButton = getByTestId('1');
-  fireEvent.keyDown(secondButton, {
-    key: 'LEFT',
-    keyCode: LEFT
-  });
-
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
-  const thirdButton = getByTestId('2');
-  fireEvent.keyDown(thirdButton, {
-    key: 'LEFT',
-    keyCode: LEFT
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(1));
+  user.type(first, '{arrowright}', { skipClick: true });
+  expect(second).toHaveFocus();
+  user.type(second, '{arrowright}', { skipClick: true });
+  expect(last).toHaveFocus();
 });
 
-test('RIGHT', () => {
-  const { asFragment, getByTestId } = render(<Component />);
-  const firstButton = getByTestId('0');
-  fireEvent.keyDown(firstButton, {
-    key: 'RIGHT',
-    keyCode: RIGHT
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(1));
+test('If focus is on the last registered element, {arrowright} moves focus to the first registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, _, last] = screen.getAllByRole('button');
+  last.focus();
 
-  const secondButton = getByTestId('1');
-  fireEvent.keyDown(secondButton, {
-    key: 'RIGHT',
-    keyCode: RIGHT
-  });
-
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
-  const thirdButton = getByTestId('2');
-  fireEvent.keyDown(thirdButton, {
-    key: 'RIGHT',
-    keyCode: RIGHT
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
+  user.type(last, '{arrowright}', { skipClick: true });
+  expect(first).toHaveFocus();
 });
 
-test('UP', () => {
-  const { asFragment, getByTestId } = render(<Component />);
-  const firstButton = getByTestId('0');
-  fireEvent.keyDown(firstButton, {
-    key: 'UP',
-    keyCode: UP
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
+test('If horizontal arrows are disabled, {arrowright} does not move focus', () => {
+  render(
+    <ArrowTrap allowHorizontal={false}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const second = screen.getByRole('button', { name: 'Second' });
+  second.focus();
 
-  const secondButton = getByTestId('1');
-  fireEvent.keyDown(secondButton, {
-    key: 'UP',
-    keyCode: UP
-  });
-
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
-  const thirdButton = getByTestId('2');
-  fireEvent.keyDown(thirdButton, {
-    key: 'UP',
-    keyCode: UP
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(1));
+  user.type(second, '{arrowright}', { skipClick: true });
+  expect(second).toHaveFocus();
 });
 
-test('DOWN', () => {
-  const { asFragment, getByTestId } = render(<Component />);
-  const firstButton = getByTestId('0');
-  fireEvent.keyDown(firstButton, {
-    key: 'DOWN',
-    keyCode: DOWN
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(1));
+test('If focus is on a registered element, {arrowup} moves focus to the previous registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, second, last] = screen.getAllByRole('button');
+  last.focus();
 
-  const secondButton = getByTestId('1');
-  fireEvent.keyDown(secondButton, {
-    key: 'DOWN',
-    keyCode: DOWN
-  });
+  user.type(last, '{arrowup}', { skipClick: true });
+  expect(second).toHaveFocus();
+  user.type(second, '{arrowup}', { skipClick: true });
+  expect(first).toHaveFocus();
+});
 
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(2));
-  const thirdButton = getByTestId('2');
-  fireEvent.keyDown(thirdButton, {
-    key: 'DOWN',
-    keyCode: DOWN
-  });
-  expect(asFragment()).toMatchInlineSnapshot(snapshot(0));
+test('If focus is on the first registered element, {arrowup} moves focus to the last registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, _, last] = screen.getAllByRole('button');
+  first.focus();
+
+  user.type(first, '{arrowup}', { skipClick: true });
+  expect(last).toHaveFocus();
+});
+
+test('If vertical arrows are disabled, {arrowup} does not move focus', () => {
+  render(
+    <ArrowTrap allowVertical={false}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const second = screen.getByRole('button', { name: 'Second' });
+  second.focus();
+
+  user.type(second, '{arrowup}', { skipClick: true });
+  expect(second).toHaveFocus();
+});
+
+test('If focus is on a registered element, {arrowdown} moves focus to the next registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, second, last] = screen.getAllByRole('button');
+  first.focus();
+
+  user.type(first, '{arrowdown}', { skipClick: true });
+  expect(second).toHaveFocus();
+  user.type(second, '{arrowdown}', { skipClick: true });
+  expect(last).toHaveFocus();
+});
+
+test('If focus is on the last registered element, {arrowdown} moves focus to the first registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const [first, _, last] = screen.getAllByRole('button');
+  last.focus();
+
+  user.type(last, '{arrowdown}', { skipClick: true });
+  expect(first).toHaveFocus();
+});
+
+test('If vertical arrows are disabled, {arrowdown} does not move focus', () => {
+  render(
+    <ArrowTrap allowVertical={false}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const second = screen.getByRole('button', { name: 'Second' });
+  second.focus();
+
+  user.type(second, '{arrowdown}', { skipClick: true });
+  expect(second).toHaveFocus();
+});
+
+test('If focus is on a registered element, {home} moves focus to the first registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const buttons = screen.getAllByRole('button');
+  const first = buttons[0];
+
+  for (let i = 0; i < buttons.length; i++) {
+    const button = buttons[i];
+    button.focus();
+    user.type(button, '{home}', { skipClick: true });
+    expect(first).toHaveFocus();
+  }
+});
+
+test('If jump buttons are disabled, {home} does not move focus', () => {
+  render(
+    <ArrowTrap allowJump={false}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const second = screen.getByRole('button', { name: 'Second' });
+  second.focus();
+
+  user.type(second, '{home}', { skipClick: true });
+  expect(second).toHaveFocus();
+});
+
+test('If focus is on a registered element, {end} moves focus to the last registered element', () => {
+  render(
+    <ArrowTrap>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const buttons = screen.getAllByRole('button');
+  const last = buttons[buttons.length - 1];
+
+  for (let i = 0; i < buttons.length; i++) {
+    const button = buttons[i];
+    button.focus();
+    user.type(button, '{end}', { skipClick: true });
+    expect(last).toHaveFocus();
+  }
+});
+
+test('If jump buttons are disabled, {end} does not move focus', () => {
+  render(
+    <ArrowTrap allowJump={false}>
+      <Button>First</Button>
+      <Button>Second</Button>
+      <Button>Third</Button>
+    </ArrowTrap>,
+  );
+  const second = screen.getByRole('button', { name: 'Second' });
+  second.focus();
+
+  user.type(second, '{end}', { skipClick: true });
+  expect(second).toHaveFocus();
 });

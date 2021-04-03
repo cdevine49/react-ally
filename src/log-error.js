@@ -10,10 +10,11 @@ const logAndThrow = message => {
   } catch (_) {}
 };
 
-const logError = (condition = false, message) =>
+const useLogError = (condition = false, message) =>
   useEffect(() => {
     if (condition) {
       logAndThrow(message);
     }
-  }, []);
-export default logError;
+  }, [condition, message]);
+
+export default useLogError;

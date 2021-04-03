@@ -1,22 +1,24 @@
-import React, { useEffect, useRef } from 'react';
+import React from 'react';
 import { storiesOf } from '@storybook/react';
-import { ArrowTrap } from '../../src/arrow-trap';
+import { ArrowTrap, FocusContext } from '../../src/arrow-trap';
 
-const FocusableElement = ({ focused, setFocusOnKeyDown }) => {
-  const ref = useRef(null);
-  useEffect(() => {
-    if (focused) {
-      ref.current.focus();
-    }
-  }, [focused]);
+const FocusableElement = () => {
+  const ref = React.useRef(null);
+	const [focused, setFocused] = React.useState(false)
+	const { onKeyDown, register } = React.useContext(FocusContext);
+
+	React.useEffect(() => {
+		register(ref.current);
+	}, [register]);
+
   return (
-    <button ref={ref} onKeyDown={setFocusOnKeyDown}>{`I am${
+    <button ref={ref} onBlur={() => setFocused(false)} onFocus={() => setFocused(true)} onKeyDown={onKeyDown}>{`I am${
       focused ? '' : ' not'
     } focused`}</button>
   );
 };
 
-storiesOf('Arrow Trap', module).add('Default', () => (
+storiesOf('Arrow Trap', module).add('Arrow Trap', () => (
   <ArrowTrap>
     <FocusableElement />
     <FocusableElement />

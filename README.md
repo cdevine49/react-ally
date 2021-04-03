@@ -19,51 +19,78 @@ If you'd rather bring in react-ally through a script tag, you can find UMD build
 ### Accordion
 
 ```jsx
-import React from 'react'
-import
-{ AccordionGroup, Accordion, AccordionHeader, AccordionPanel }
-from 'react-ally';
+import React from 'react';
+import { Accordion, Header, Item Panel } from 'react-ally/accordion';
 
 const MyAccordion = () => (
-  <AccordionGroup
+  <Accordion
+    /*
+    Boolean that determines whether all accordions can be closed at once.
+
+		Defaults to true
+
+		Optional
+		*/
+    allowHideAllPanels={true}
+
     /*
     Number between 1 and 6 which sets the level of accordion headers.
-    If using the Section / Heading components in this library, those
-    will handle the level for you.
-  */
+
+		Default value depends on the Accordions nesting under Section components
+
+		Optional
+		*/
     headingLevel={2}
+
     /*
     String used on the wrapping div and to create the ids + aria attributes
     on the Headers and Contents.
-  */
+
+		No default
+
+		Required
+		*/
     id="example-id"
+
     /*
     One of "none", "first", "all"
-    Determines which of the accordions start opened.
-  */
+
+		Defaults to "first"
+
+		Optional
+		*/
     initialOpen="first"
+
     /*
     Boolean that determines whether multiple accordions can be open at once.
-  */
+
+		Defaults to true
+
+		Optional
+		*/
     multi={true}
   >
-    <Accordion>
-      <AccordionHeader
-      /*
+    <Item>
+      <Header
+				/*
         Object of props added to the header button.  Other props will be added
         to the heading tag.
-      */
+
+				Defaults to {}
+
+				Optional
+				*/
         buttonProps={{ className="button-class" }}
       >
         First Header
-      </AccordionHeader>
-      <AccordionPanel>First Content</AccordionPanel>
-    </Accordion>
-    <Accordion>
-      <AccordionHeader>Second Header</AccordionHeader>
-      <AccordionPanel>Second Content</AccordionPanel>
-    </Accordion>
-  </AccordionGroup>
+      </Header>
+      <Panel>First Content</Panel>
+    </Item>
+    <Item>
+      <Header>Second Header</Header>
+      <Panel>Second Content</Panel>
+    </Item>
+  </Accordion>
 );
 ```
 
