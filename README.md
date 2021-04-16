@@ -98,36 +98,71 @@ const MyAccordion = () => (
 
 ```jsx
 import React from 'react'
-import { Breadcrumb, BreadcrumbLink } from 'react-ally';
+import { Breadcrumb, CurrentBreadcrumb, Trail } from 'react-ally/breadcrumb';
 
 const MyBreadcrumb = () => (
-  <Breadcrumb
-  /*
+  <Trail
+		/*
     Object of props added to the <ol/> tag.  Other props are spread
     over the wrapping <nav /> tag.
-  */
+
+		Defaults to {}
+
+		Optional
+		*/
     listProps={{
       className="example-ol-class"
     }}
   >
-    <BreadcrumbLink
-    /*
-     Required link destination
-    */
-      href="/main"
-    /*
-      Object of props added to the <li/> tag.  Other props are spread
-      over the inner <a /> tag.
-    */
-      listItemProps={{
+    <Breadcrumb
+			/*
+			Link destination
+
+			No default
+
+			Required
+			*/
+      href="/examples"
+
+			/*
+			Object of props added to the <a/> tag.  Other props are spread
+			over the inner <li /> tag.
+
+			Defaults to {}
+
+			Optional
+			*/
+      linkProps={{
         className="example-li-class"
       }}
     >
       Main
-    </BreadcrumbLink>
-    <BreadcrumbLink href="/main/nested">Nested</BreadcrumbLink>
-    <BreadcrumbLink href="/main/nested/current">Current</BreadcrumbLink>
-  </Breadcrumb>
+    </Breadcrumb>
+    <CurrentBreadcrumb
+			/*
+			Determines whether the breadcrump is a link or plain text
+
+			Defaults to false
+
+			Optional
+			*/
+			link={false}
+
+			/*
+			Object of props added to the <a/> tag.  Other props are spread
+			over the inner <li /> tag.
+
+			Defaults to {}
+
+			Optional
+			*/
+      linkProps={{
+        className="example-li-class"
+      }}
+		>
+			Current
+		</CurrentBreadcrumb>
+  </Trail>
 );
 ```
 

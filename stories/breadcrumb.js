@@ -1,9 +1,9 @@
 import React from 'react';
 import styled from 'styled-components';
 import { storiesOf } from '@storybook/react';
-import { Breadcrumb, BreadcrumbLink } from '../src/breadcrumb';
+import { Breadcrumb, CurrentBreadcrumb, Trail } from '../src/breadcrumb';
 
-const Wrapper = styled(Breadcrumb)`
+const Wrapper = styled(Trail)`
   ol {
     list-style: none;
     display: flex;
@@ -23,33 +23,28 @@ const Wrapper = styled(Breadcrumb)`
 `;
 
 const stories = storiesOf('Breadcrumb', module);
-stories.add('Current page is link', () => (
+stories.add('Breadcrumb', () => (
   <div>
     <Wrapper>
-      <BreadcrumbLink
+      <Breadcrumb
         href="/users"
         onClick={e => {
           e.preventDefault();
         }}
       >
         Users
-      </BreadcrumbLink>
-      <BreadcrumbLink
+      </Breadcrumb>
+      <Breadcrumb
         href="/users/10"
         onClick={e => {
           e.preventDefault();
         }}
       >
         User 10
-      </BreadcrumbLink>
-      <BreadcrumbLink
-        href="/users/10/profile"
-        onClick={e => {
-          e.preventDefault();
-        }}
-      >
+      </Breadcrumb>
+      <CurrentBreadcrumb>
         User 10's Profile
-      </BreadcrumbLink>
+      </CurrentBreadcrumb>
     </Wrapper>
   </div>
 ));
